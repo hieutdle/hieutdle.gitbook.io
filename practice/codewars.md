@@ -1,2 +1,2 @@
-# 🇭🇰 Codewars
+# 💮 Codewars
 
