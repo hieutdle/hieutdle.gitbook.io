@@ -15,20 +15,23 @@ This is the place I keep notes of what I learned and what I accomplished. This b
 
 ### Books
 1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](books/learning-go-idiomatic-approach.md) 
-2. [Hello, world](hello-world.md) - Declaring variables, constants, if/else statements, switch, write your first go program and write your first test. Sub-test syntax and closures.
-3. [Integers](integers.md) - Further Explore function declaration syntax and learn new ways to improve the documentation of your code.
-4. [Iteration](iteration.md) - Learn about `for` and benchmarking.
-5. [Arrays and slices](arrays-and-slices.md) - Learn about arrays, slices, `len`, varargs, `range` and test coverage.
-6. [Structs, methods & interfaces](structs-methods-and-interfaces.md) - Learn about `struct`, methods, `interface` and table driven tests.
-7. [Pointers & errors](pointers-and-errors.md) - Learn about pointers and errors.
+2. [Writing An Interpreter In Go](books/writing-an-interpreter-in-go.md)
+3. [Cloud Native Go - Building Reliable Services in Unreliable Environments](books/cloud-native-go.md)
 
 ### Practice
+1. [Codewars](practice/codewars.md)
+2. [CodeAbbey](practice/codeabbey.md)
+3. [LeetCode](practice/leetcode.md)
 
 ### Projects
+1. [Dolphin](projects/dolphin.md)
 
 ### Courses
+1. [Data Management for Digital Health](courses/data-management-for-digital-health.md)
+2. [Digital Health and Research Systems, Data Interoperability](courses/digital-health-and-research-systems-data-interoperability.md)
 
 ### Posts
+1. [Characters, Symbols and the Unicode Miracle](posts/utf-8.md)
 
 ## Background
 I was a Data Engineer working on AWS in Vietnam before. But a lot of things happen, and now I want to change my career to Software Engineer after coming to Germany.
