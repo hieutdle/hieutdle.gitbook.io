@@ -1,2 +1,2 @@
-# 🏠 Home
+# Hieu Le's personal blog
 

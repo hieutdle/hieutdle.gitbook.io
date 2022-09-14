@@ -1,6 +1,6 @@
 # Table of contents
 
-* [🏠 Home](README.md)
+* [Hieu Le's personal blog](README.md)
 
 ## 📖 Books
 
