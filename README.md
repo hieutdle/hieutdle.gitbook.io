@@ -14,7 +14,7 @@ This is the place I keep notes of what I learned and what I accomplished. This b
 ## Table of contents
 
 ### Books
-1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](books/) 
+1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](books/learning-go-idiomatic-approach.md) 
 2. [Hello, world](hello-world.md) - Declaring variables, constants, if/else statements, switch, write your first go program and write your first test. Sub-test syntax and closures.
 3. [Integers](integers.md) - Further Explore function declaration syntax and learn new ways to improve the documentation of your code.
 4. [Iteration](iteration.md) - Learn about `for` and benchmarking.
