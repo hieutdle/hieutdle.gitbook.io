@@ -16,13 +16,13 @@
 
 ## 💻 Projects
 
-* [Page 1](projects/page-1.md)
+* [🐬 Dolphin](projects/dolphin.md)
 
 ## 💯 Courses
 
-* [Page 2](courses/page-2.md)
-* [Page 3](courses/page-3.md)
+* [Data Management for Digital Health](courses/data-management-for-digital-health.md)
+* [Digital Health and Research Systems, Data Interoperability](courses/digital-health-and-research-systems-data-interoperability.md)
 
-## 🗒 Notes
+## 🗒 Posts
 
-* [Page 4](notes/page-4.md)
+* [Characters, Symbols and the Unicode Miracle](posts/utf-8.md)
