@@ -20,8 +20,7 @@ This is the place I keep notes of what I learned and what I accomplished. This b
 
 ### Practice
 1. [Codewars](practice/codewars.md)
-2. [CodeAbbey](practice/codeabbey.md)
-3. [LeetCode](practice/leetcode.md)
+2. [LeetCode](practice/leetcode.md)
 
 ### Projects
 1. [Dolphin](projects/dolphin.md)

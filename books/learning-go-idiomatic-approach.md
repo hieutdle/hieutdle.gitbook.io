@@ -79,6 +79,9 @@ var z float64 = x
 var d byte = x
 ````
 
+### Naming Variables and Constants
+
+
 In many languages, constants are always written in all uppercase letters, with words
 separated by underscores (names like `INDEX_COUNTER` or `NUMBER_TRIES`). Go
 does not follow this pattern. This is because Go uses the case of the first letter in the
@@ -103,7 +106,17 @@ This creates an array of 12 ints with the following values: [1, 0, 0, 0, 0, 4, 6
 100, 15]. `5: 4` means 0 0 0 0 to index 5, then 4.
 
 
-## Slices
+### Slices
+
+
+One slice is appended onto another by using the `…` operator to expand the source slice
+into individual values.
+
+```go
+y := []int{20, 30, 40}
+x = append(x, y...)
+```
+
 
 When a slice grows via append, it takes time for the Go runtime to allocate new mem‐
 ory and copy the existing data from the old memory to the new. The old memory also
@@ -112,4 +125,57 @@ by more than one each time it runs out of capacity. The rules as of Go 1.14 are 
 double the size of the slice when the capacity is less than 1,024 and then grow by at
 least 25% afterward.
 
+If you know how many things you plan to put into a slice, create the slice with the
+correct initial capacity. We do that with the make function.
 
+### Declaring slices
+
+```go
+var data []int // a slice that stays nil
+
+var x = []int{} // empty slice zero-length, non-nil
+
+data := []int{2, 4, 6, 8} // slice with default values
+```
+
+If you have a good idea of how large your slice needs to be, but don’t know what those
+values will be when you are writing the program, use make with a zero length and a specified capacity. This
+allows you to use append to add items to the slice. 
+
+Append can make overlapping slices
+
+```go
+x := make([]int, 0, 5)
+x = append(x, 1, 2, 3, 4)
+y := x[:2]
+z := x[2:]
+fmt.Println(cap(x), cap(y), cap(z))
+y = append(y, 30, 40, 50)
+x = append(x, 60)
+z = append(z, 70)
+fmt.Println("x:", x)
+fmt.Println("y:", y)
+fmt.Println("z:", z)
+```
+
+```go
+5 5 3
+x: [1 2 30 40 70]
+y: [1 2 30 40 70]
+z: [30 40 70]
+```
+
+The full slice expression includes a third part, which
+indicates the last position in the parent slice’s capacity that’s available for the subslice.
+
+```go
+y := x[:2:2]
+z := x[2:4:4]
+```
+
+```go
+5 2 2
+x: [1 2 3 4 60]
+y: [1 2 30 40 50]
+z: [3 4 70]
+```

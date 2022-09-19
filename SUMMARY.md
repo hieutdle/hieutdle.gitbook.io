@@ -11,7 +11,6 @@
 ## 🏅 Practice
 
 * [💮 Codewars](practice/codewars.md)
-* [⛪ CodeAbbey](practice/codeabbey.md)
 * [💸 LeetCode](practice/leetcode.md)
 
 ## 💻 Projects
