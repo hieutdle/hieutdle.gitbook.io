@@ -6,9 +6,9 @@ This is the place I keep notes of what I learned and what I accomplished. This b
 ## Why
 
 * Notes from **books** (mostly **Go**) that I have read.
-* Interesting exercises when **practiced** in different coding platforms.
+* Interesting **problems** when practicing in different coding platforms.
 * Descriptions of my **projects**.
-* Summarise the **courses**, mostly from my Master's degree in Digital Health at HPI.
+* Summarise the **courses**(Digital Health at HPI, GCP).
 * **Posts** about exciting things that I found during my journey.
 
 ## Table of contents
@@ -40,7 +40,6 @@ I am currently studying Master in Digital Health at Hasso Plattner Institute, Go
 - [Linkedin](https://www.linkedin.com/in/ledinhtrunghieu/)
 - [Github](https://github.com/ledinhtrunghieu)
 - [Codewars](https://www.codewars.com/users/ledinhtrunghieu)
-- [CodeAbbey](https://www.codeabbey.com/index/user_profile/ledinhtrunghieu)
 - [Leetcode](https://leetcode.com/)
 - [Legacy DE blog](https://ledinhtrunghieu.github.io/content)
 

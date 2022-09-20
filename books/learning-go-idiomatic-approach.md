@@ -7,7 +7,7 @@
 ### Literals
 
 **Integer literals** are normally base ten, but different
-prefixes are used to indicate other bases: `0b` for binary (base two), `0o` or leading 0 with no letter for octal (base
+prefixes are used to indicate other bases: `0b` for binary (base two), `0o` or leading 0 with no letter follow for octal (base
 eight), or `0x` for hexadecimal (base sixteen). 
 
 **Rune literals** represent characters and are surrounded by single quotes. In Go, Single quotes and double quotes 
