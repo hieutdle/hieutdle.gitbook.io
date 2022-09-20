@@ -8,17 +8,19 @@
 * [📕 Writing An Interpreter In Go](books/writing-an-interpreter-in-go.md)
 * [📘 Cloud Native Go - Building Reliable Services in Unreliable Environments](books/cloud-native-go.md)
 
-## 🏅 Practice
-
-* [💮 Codewars](practice/codewars.md)
-* [💸 LeetCode](practice/leetcode.md)
-
 ## 💻 Projects
 
 * [🐬 Dolphin](projects/dolphin.md)
 
+## 💸 LeetCode
+
+* [🥉 Easy](leetcode/easy.md)
+* [🥈 Medium](leetcode/medium.md)
+* [🥇 Hard](leetcode/hard.md)
+
 ## 💯 Courses
 
+* [Data Structures and Algorithms in Go](courses/data-structures-and-algorithms-in-go.md)
 * [Data Management for Digital Health](courses/data-management-for-digital-health.md)
 * [Digital Health and Research Systems, Data Interoperability](courses/digital-health-and-research-systems-data-interoperability.md)
 
