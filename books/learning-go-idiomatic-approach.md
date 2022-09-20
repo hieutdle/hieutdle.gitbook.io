@@ -33,20 +33,11 @@ The **rune** type is an alias for the **int32** type, just like byte is an alias
 
 ### var Versus :=
 
-The most verbose way to declare a variable in Go uses the var keyword, an explicit
-type, and an assignment. It looks like this:
 ```go
 var x int = 10
-	
 var x = 10
-	
 var x int
-```
-
-Go also supports a short declaration format.
-
-``` go
-x, y := 30, "hello"
+x:= 10
 ```
 
 Situations within functions where you should avoid :=:
@@ -62,11 +53,8 @@ All of the following assignments are legal:
 
 ````go
 const x = 10
-
 var y int = x
-
 var z float64 = x
-
 var d byte = x
 ````
 
@@ -109,16 +97,11 @@ by more than one each time it runs out of capacity. The rules as of Go 1.14 are 
 double the size of the slice when the capacity is less than 1,024 and then grow by at
 least 25% afterward.
 
-If you know how many things you plan to put into a slice, create the slice with the
-correct initial capacity. We do that with the make function.
-
 ### Declaring slices
 
 ```go
 var data []int // a slice that stays nil
-
 var x = []int{} // empty slice zero-length, non-nil
-
 data := []int{2, 4, 6, 8} // slice with default values
 ```
 
