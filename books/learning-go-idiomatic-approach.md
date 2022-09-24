@@ -214,7 +214,7 @@ set.
 
 ## Struct
 
-**Variadic parameters**
+**Variadic parameters** allows any number of input parameters
 
 ```go
 func addTo(base int, vals ...int) []int {
@@ -267,4 +267,452 @@ var opMap = map[string]func(int, int) int{
 
 ### Closures
 
+Functions declared inside of functions are closures.
 
+```go
+func adder() func(int) int {
+	sum := 0
+	return func(x int) int {
+		sum += x
+		return sum
+	}
+}
+
+func main() {
+	pos, neg := adder(), adder()
+	for i := 0; i < 10; i++ {
+		fmt.Println(
+			pos(i),
+			neg(-2*i),
+		)
+	}
+}
+```
+
+### Go Is Call By Value
+It means that when you supply a variable for a parameter to a function, Go
+always makes a copy of the value of the variable
+
+```go
+type person struct {
+  age int
+  name string
+}
+
+func modifyFails(i int, s string, p person) {
+  i = i * 2
+  s = "Goodbye"
+  p.name = "Bob"
+}
+
+func main() {
+  p := person{}
+  i := 2
+  s := "Hello"
+  modifyFails(i, s, p)
+  fmt.Println(i, s, p)
+  // won't change: 2 Hello {0 }
+}
+```
+Write a function to modify a map parameter and a function to modify
+a slice parameter.  Any changes made to a map parameter
+are reflected in the variable passed into the function (includes delete). For a slice, you can modify any element in the slice, but you can’t lengthen the slice. It’s because maps and slices are both implemented with pointers.
+
+## Pointer
+
+A **pointer type**
+```go
+x := 10
+var pointerToX *int // *int is just a type like: var i int
+pointerToX = &x // store address of a variable
+fmt.Println(pointerToX) // prints a memory address
+fmt.Println(*pointerToX) // prints 10
+z := 5 + *pointerToX
+fmt.Println(z) // prints 15
+```
+
+While different types of variables can take up different numbers of memory locations (boolean 1 byte, int32 4 byte),
+every pointer, no matter what type it is pointing to, is always the same size: a number
+that holds the location in memory where the data is stored. 
+
+```go
+func failedUpdate(px *int) {
+  x2 := 20
+  px = &x2
+}
+func update(px *int) {
+  *px = 20
+}
+func main() {
+  x := 10
+  failedUpdate(&x)
+  fmt.Println(x) // prints 10
+  update(&x)
+  fmt.Println(x) // prints 20
+}
+```
+we start with `x` in `main` set to `10`. When we call `failedUpdate`, we
+copy the address of `x` into the parameter `px`. Next, we declare `x2` in `failedUpdate`, set
+to `20`. We then point `px` in `failedUpdate` to the address of `x2`. When we return to
+main, the value of `x` is unchanged. When we call update, we copy the address of `x` into
+`px` again. However, this time we change the value of what `px` in update points to, the
+variable `x` in main. When we return to main, `x` has been changed.
+
+### Pointer Passing Performance
+
+The time to pass a pointer
+into a function is constant for all data sizes, roughly one nanosecond. This makes
+sense, as the size of a pointer is the same for all data types. It takes about a millisecond once the value
+gets to be around 10 megabytes of data.
+
+The behavior for returning a pointer versus returning a value is more interesting. For
+data structures that are smaller than a megabyte, it is actually slower to return a
+pointer type than a value type. For example, a 100-byte data structure takes around 10
+nanoseconds to be returned, but a pointer to that data structure takes about 30 nano‐
+seconds. Once your data structures are larger than a megabyte, the performance
+advantage flips. It takes nearly 2 milliseconds to return 10 megabytes of data, but a
+little more than half a millisecond to returnq a pointer to it.
+
+### The Difference Between Maps and Slices
+
+You should avoid using maps for input parameters or return values,
+especially on public APIs. You should avoid using maps for input parameters or return values,
+especially on public APIs.
+
+Changing the values in the slice changes the memory that the pointer points to, so the
+changes are seen in both the copy and the original. Changes to the length and capacity are not reflected back in the original, because they
+are only in the copy. Changing the capacity means that the pointer is now pointing to
+a new, bigger block of memory.
+
+The reason you can pass a slice of any size to a function is that the
+data that’s passed to the function is the same for any size slice: two
+int values and a pointer. The reason that you can’t write a function
+that takes an array of any size is because the entire array is passed
+to the function, not just a pointer to the data.
+
+## Types, Methods, and Interfaces
+
+Go allows you to declare a type at any block level, from the package block down.
+
+```go
+type Score int
+type Converter func(string)Score
+type TeamScores map[string]Score
+```
+
+### Methods
+```go
+type Person struct {
+  FirstName string
+  LastName string
+  Age int
+}
+func (p Person) String() string {
+  return fmt.Sprintf("%s %s, age %d", p.FirstName, p.LastName, p.Age)
+}
+```
+
+Method declarations look just like function declarations, with one addition: the
+receiver specification. The receiver appears between the keyword func and the name
+of the method. The receiver name `p` appears before the type `Person`.
+
+### Pointer Receivers and Value Receivers
+
+* If your method modifies the receiver or needs to handle nil instances, you must use a pointer receiver.
+* If your method doesn’t modify the receiver, you can use a value receiver
+```go
+type Counter struct {
+  total int
+  lastUpdated time.Time
+}
+func (c *Counter) Increment() {
+  c.total++
+  c.lastUpdated = time.Now()
+}
+func (c Counter) String() string {
+  return fmt.Sprintf("total: %d, last updated: %v", c.total, c.lastUpdated)
+}
+```
+The rules for passing values to functions still apply. If you pass
+a value type to a function and call a pointer receiver method on the passed value, you
+are invoking the method on a copy.
+```go
+func doUpdateWrong(c Counter) {
+  c.Increment()
+  fmt.Println("in doUpdateWrong:", c.String())
+}
+func doUpdateRight(c *Counter) {
+  c.Increment()
+  fmt.Println("in doUpdateRight:", c.String())
+}
+func main() {
+  var c Counter
+  doUpdateWrong(c)
+  fmt.Println("in main:", c.String())
+  doUpdateRight(&c)
+  fmt.Println("in main:", c.String())
+}
+```
+### Methods Are Functions Too
+
+```go
+type Adder struct {
+  start int
+}
+func (a Adder) AddTo(val int) int {
+  return a.start + val
+}
+```
+
+* We create an instance of the type in the usual way and invoke its method:
+```go
+myAdder := Adder{start: 10}
+fmt.Println(myAdder.AddTo(5)) // prints 15
+```
+
+* We can also assign the method to a variable or pass it to a parameter of type
+`func(int)int`. This is called a method value:
+```go
+f1 := myAdder.AddTo
+fmt.Println(f1(10))
+```
+
+* You can also create a function from the type itself. This is called a method expression:
+```go
+f2 := Adder.AddTo
+fmt.Println(f2(myAdder, 15)) // prints 25
+```
+
+In the case of a method expression, the first parameter is the receiver for the method;
+our function signature is func(Adder, int) int.
+
+### iota
+
+his means that it
+assigns 0 to the first constant , 1 to the second constant ,
+and so on. When a new const block is created, iota is set back to 0.
+
+```go
+type BitField int
+const (
+  Field1 BitField = 1 << iota // assigned 1
+  Field2 // assigned 2
+  Field3 // assigned 4
+  Field4 // assigned 8
+)
+```
+
+### Use Embedding for Composition
+
+```go
+type Employee struct {
+  Name string
+  ID string
+}
+func (e Employee) Description() string {
+  return fmt.Sprintf("%s (%s)", e.Name, e.ID)
+}
+type Manager struct {
+  Employee
+  Reports []Employee
+  }
+func (m Manager) FindNewEmployees() []Employee {
+// do business logic
+}
+
+m := Manager{
+  Employee: Employee{
+  Name: "Bob Bobson",
+  ID: "12345",
+  },
+  Reports: []Employee{},
+}
+  fmt.Println(m.ID) // prints 12345
+  fmt.Println(m.Description()) // prints Bob Bobson (12345)
+```
+
+### Embedding Is Not Inheritance
+
+```go
+var eFail Employee = m // compilation error!
+var eOK Employee = m.Employee // ok!
+```
+
+While embedding one concrete type inside another won’t allow you to treat the outer
+type as the inner type, the methods on an embedded field do count toward the
+method set of the containing struct. This means they can make the containing struct
+implement an interface
+```go
+type Inner struct {
+  A int
+}
+func (i Inner) IntPrinter(val int) string {
+  return fmt.Sprintf("Inner: %d", val)
+}
+func (i Inner) Double() string {
+  return i.IntPrinter(i.A * 2)
+}
+type Outer struct {
+  Inner
+  S string
+}
+func (o Outer) IntPrinter(val int) string {
+  return fmt.Sprintf("Outer: %d", val)
+}
+func main() {
+    o := Outer{
+    Inner: Inner{
+    A: 10,
+    },
+    S: "Hello",
+  }
+  fmt.Println(o.Double())
+}
+Running this code produces the output:
+Inner: 20
+```
+
+### Interface
+
+Interfaces specify what callers need. The client code defines the
+interface to specify what functionality it requires.
+
+```go
+type LogicProvider struct {}
+func (lp LogicProvider) Process(data string) string {
+  // business logic
+}
+type Logic interface {
+  Process(data string) string
+}
+type Client struct{
+  L Logic
+}
+func(c Client) Program() {
+  // get data from somewhere
+  c.L.Process(data)
+}
+main() {
+  c := Client{
+  L: LogicProvider{},
+  } 
+  c.Program()
+}
+```
+
+Interfaces are named collections of method signatures.
+
+You have a square and a circle, and want to get the area for each.
+
+```go
+type rect struct {
+    width, height float64
+}
+type circle struct {
+    radius float64
+}
+```
+
+
+```go
+// Now you need functions to display the area and perim. You might write code like this.
+func (r rect) area() float64 {
+  return r.width * r.height
+}
+func (r rect) perim() float64 {
+  return 2*r.width + 2*r.height
+}
+
+func (c circle) area() float64 {
+  return math.Pi * c.radius * c.radius
+}
+func (c circle) perim() float64 {
+  return 2 * math.Pi * c.radius
+}
+```
+Both functions do exactly the same thing. 
+Because Go is strongly typed we need to have two functions. 
+One to display the area of rect, and one to display the area of circles.
+We can write a single function that takes both.
+```go
+type geometry interface {
+  area() float64
+  perim() float64
+}
+```
+
+Now we can throw away our two functions and write a single function that takes an instance of 
+`geometry`.
+
+
+```go
+func measure(g geometry) {
+    fmt.Println(g)
+    fmt.Println(g.area())
+    fmt.Println(g.perim())
+}
+
+func main() {
+    r := rect{width: 3, height: 4}
+    c := circle{radius: 5}
+    measure(r) // {3 4} 12 14
+    measure(c) // 5 78.53981633974483 31.41592653589793
+}
+```
+
+### Accept Interfaces, Return Structs
+
+You’ll often hear experienced Go developers say that your code should “Accept inter‐
+faces, return structs.” What this means is that the business logic invoked by your
+functions should be invoked via interfaces, but the output of your functions should
+be a concrete type.
+
+### The Empty Interface Says Nothing
+
+Sometimes in a statically typed language, you need a way to say that a variable could
+store a value of any type. Go uses interface{} to represent this:
+```go
+  var i interface{}
+  i = 20
+  i = "hello"
+  i = struct {
+  FirstName string
+  LastName string
+  } {"Fred", "Fredson"}
+```
+
+You should note that interface{} isn’t special case syntax. An empty interface type
+simply states that the variable can store any value whose type implements zero or
+more methods. This just happens to match every type in Go. Because an empty inter‐
+face doesn’t tell you anything about the value it represents, there isn’t a lot you can do
+with it. One common use of the empty interface is as a placeholder for data of uncer‐
+tain schema that’s read from an external source, like a JSON file:
+```go
+  // one set of braces for the interface{} type,
+  // the other to instantiate an instance of the map
+  data := map[string]interface{}{}
+  contents, err := ioutil.ReadFile("testdata/sample.json")
+  if err != nil {
+  return err
+  }
+  defer contents.Close()
+  json.Unmarshal(contents, &data)
+// the contents are now in the data map
+```
+Another use of interface{} is as a way to store a value in a user-created data structure. 
+```go
+type LinkedList struct {
+  Value interface{}
+  Next *LinkedList
+}
+func (ll *LinkedList) Insert(pos int, val interface{}) *LinkedList {
+    if ll == nil || pos == 0 {
+    return &LinkedList{
+      Value: val,
+      Next: ll,
+    }
+  }
+  ll.Next = ll.Next.Insert(pos-1, val)
+  return ll
+}
+```
