@@ -1,7 +1,5 @@
 # 📔 Learning Go: An Idiomatic Approach to Real-World Go Programming
 
-**[You can find all the code for the notes of this book here](https://github.com/ledinhtrunghieu/learning-go)**
-
 ## Primitive Types and Declarations
 
 ### Literals
@@ -716,3 +714,111 @@ func (ll *LinkedList) Insert(pos int, val interface{}) *LinkedList {
   return ll
 }
 ```
+
+### Type Switches
+
+```go
+func doThings(i interface{}) {
+ switch j := i.(type) {
+ case nil:
+ // i is nil, type of j is interface{}
+ case int:
+ // j is of type int
+ case MyInt:
+ // j is of type MyInt
+ case io.Reader:
+ // j is of type io.Reader
+ case string:
+ // j is a string
+ case bool, rune:
+ // i is either a bool or rune, so j is of type interface{}
+ default:
+ // no idea what i is, so j is of type interface{}
+ }
+}
+```
+
+## Errors
+
+When a function executes
+as expected, `nil` is returned for the error parameter. If something goes wrong, an
+error value is returned instead. 
+
+```go
+func calcRemainderAndMod(numerator, denominator int) (int, int, error) {
+ if denominator == 0 {
+   return 0, 0, errors.New("denominator is 0")
+ }
+ return numerator / denominator, numerator % denominator, nil
+}
+```
+
+Unlike languages with exceptions, Go doesn’t have special constructs to detect if an
+error was returned. Whenever a function returns, use an if statement to check the
+error variable to see if it is non-nil:
+
+```go
+func main() {
+ numerator := 20
+ denominator := 3
+ remainder, mod, err := calcRemainderAndMod(numerator, denominator)
+ if err != nil {
+   fmt.Println(err)
+   os.Exit(1)
+ }
+ fmt.Println(remainder, mod)
+}
+// error is a built-in interface that defines a single method:
+type error interface {
+ Error() string
+}
+```
+
+### Use Strings for Simple Errors
+
+Go’s standard library provides two ways to create an error from a string. `errors.New()` 
+and `fmt.Errorf()`
+
+```go
+func doubleEven(i int) (int, error) {
+ if i % 2 != 0 {
+   return 0, errors.New("only even numbers are processed")
+ }
+ return i * 2, nil
+}
+
+func doubleEven(i int) (int, error) {
+if i % 2 != 0 {
+  return 0, fmt.Errorf("%d isn't an even number", i)
+}
+return i * 2, nil
+}
+
+```
+
+## Modules, Packages, and Imports
+
+A module is the root of a Go
+library or application, stored in a repository. Modules consist of one or more pack‐
+ages, which give the module organization and structure.
+
+Package names should be descriptive. Rather
+than have a package called `util`, create a package name that describes 
+the functionality provided by the package. For example, say you have two helper 
+functions: one to
+extract all names from a string and another to format names properly. Don’t create
+two functions in a `util` package called `ExtractNames` and `FormatNames`. If you do,
+every time you use these functions, they will be referred to as `util.ExtractNames`
+and `util.FormatNames`, and that util package tells you nothing about what the func‐
+tions do.
+
+It’s better to create one function called `Names` in a package called `extract` 
+and a second function called `Names` in a package called `format`. 
+It’s OK for these two functions
+to have the same name, because they will always be disambiguated by their package
+names. The first will be referred to as `extract.Names` when imported, and the second
+will be referred to as `format.Names`.
+
+# References
+
+* [Learning Go: An Idiomatic Approach to Real-World Go Programming](https://www.amazon.de/-/en/Jon-Bodner/dp/1492077216)
