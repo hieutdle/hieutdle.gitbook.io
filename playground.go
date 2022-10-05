@@ -2,33 +2,31 @@ package main
 
 import "fmt"
 
-func twoSum(nums []int, target int) []int {
-	twonums := make([]int, 0, 2)
-out:
-	for i1, j1 := range nums {
-		if i1 > target {
-			continue
-		} else {
-			for i2, j2 := range nums {
-				if j1+j2 == target {
-					twonums = append(twonums, i1, i2)
-					break out
-				}
-				fmt.Println(i1, j1, i2, j2)
-			}
-			fmt.Println(i1, j1)
-		}
+func isPalindrome(x int) bool {
+	// When x < 0, x is not a palindrome
+	// Also if the last digit of the number is 0, in order to be a palindrome,
+	// the first digit of the number also needs to be 0.
+	// Only 0 satisfy this property.
+
+	if x < 0 || (x%10 == 0 && x != 0) {
+		return false
 	}
-	return twonums
+
+	y := 0
+	for x >= 1 {
+		y = y*10 + x%10
+		x = x / 10
+	}
+	fmt.Println(x)
+	if y == x {
+		return true
+	} else {
+		return false
+	}
 }
 
 func main() {
-	func addTo(base int, vals ...int) []int {
-		out := make([]int, 0, len(vals))
-		for _, v := range vals {
-		out = append(out, base+v)
-	}
-		return out
-	}
-
+	x := 1221
+	fmt.Println(isPalindrome(x))
+	fmt.Println(x)
 }

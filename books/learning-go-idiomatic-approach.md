@@ -374,7 +374,6 @@ little more than half a millisecond to returnq a pointer to it.
 ### The Difference Between Maps and Slices
 
 You should avoid using maps for input parameters or return values,
-especially on public APIs. You should avoid using maps for input parameters or return values,
 especially on public APIs.
 
 Changing the values in the slice changes the memory that the pointer points to, so the
