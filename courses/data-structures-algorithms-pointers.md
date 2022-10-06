@@ -416,6 +416,288 @@ Best case: 0(1) for Insert Delete and Search
 Worst Case: 0(n) like a linked list when every element in the same linked list.
 
 #### Implement
+```go
+package main
+
+import (
+	"fmt"
+)
+
+// ArraySize is the size of the hash table array
+
+const ArraySize = 7
+
+// HashTable will hold an array
+
+type HashTable struct {
+	array [ArraySize]*bucket
+}
+
+// bucket is a linked list in each slot of the array
+
+type bucket struct {
+	head *bucketNode
+}
+
+// bucketNode structure
+type bucketNode struct {
+	key  string
+	next *bucketNode
+}
+
+// Insert will take in a key and add it to the hash table array
+
+func (h *HashTable) Insert(key string) {
+	index := hash(key)
+	h.array[index].insert(key)
+}
+
+// Search will take in a key and add it to the hash table array
+
+func (h *HashTable) Search(key string) bool {
+	index := hash(key)
+	return h.array[index].search(key)
+}
+
+// Delete will take in a key and delete it from the hash table
+
+func (h *HashTable) Delete(key string) {
+	index := hash(key)
+	h.array[index].delete(key)
+}
+
+// Init will create a bucket in each slot of the hash table
+
+func Init() *HashTable {
+	result := &HashTable{}
+	for i := range result.array {
+		result.array[i] = &bucket{}
+	}
+	return result
+}
+
+// insert will take in a key, create a node with a key
+// and insert the node in the bucket
+
+func (b *bucket) insert(k string) {
+	if !b.search(k) {
+		newNode := &bucketNode{key: k}
+		newNode.next = b.head
+		b.head = newNode
+	} else {
+		fmt.Println(k, "already exists")
+	}
+}
+
+// search will take in a key and return true if the bucket has that key
+
+func (b *bucket) search(k string) bool {
+	currentNode := b.head
+	for currentNode != nil {
+		if currentNode.key == k {
+			return true
+		}
+		currentNode = currentNode.next
+	}
+	return false
+}
+
+// delete will take in a key and delete the node from the bucket
+
+func (b *bucket) delete(k string) {
+
+	if b.head.key == k {
+		b.head = b.head.next
+		return
+	}
+	previousNode := b.head
+	for previousNode.next != nil {
+		if previousNode.next.key == k {
+			previousNode.next = previousNode.next.next
+		}
+		previousNode = previousNode.next
+	}
+}
+
+// hash
+func hash(key string) int {
+	sum := 0
+	for _, v := range key {
+		sum += int(v)
+	}
+	return sum % ArraySize
+}
+
+func main() {
+	testHashTable := Init()
+	list := []string{
+		"ERIC",
+		"KENNY",
+		"KYLE",
+		"STAN",
+		"RANDY",
+		"BUTTERS",
+		"TOKEN",
+	}
+
+	for _, v := range list {
+		testHashTable.Insert(v)
+	}
+
+	testHashTable.Delete("STAN")
+	fmt.Println(testHashTable.Search("STAN"))
+	fmt.Println(testHashTable.Search("KYLE"))
+
+	testBucket := &bucket{}
+	testBucket.insert("RANDY")
+	testBucket.insert("RANDY")
+	testBucket.delete("RANDY")
+	fmt.Println(testBucket.search("RANDY"))
+	fmt.Println(testBucket.search("ERIC"))
+}
+```
+
+### Heap
+
+The parent node is larger than a child. 
+* parent index * 2 + 1 = left child index. 
+* parent index * 2 + 2 = right child index
+
+Very fast when getting the biggest or lowest value (highest node).
+
+#### Insert
+When ever insert: add the node to the bottom right of the tree. 
+
+#### Heapify
+We need to re-arrange the tree by swapping the parent and child nodes if 
+the child node is larger than the parent node. The process of rearranging 
+the indices as **Heapify**. 
+
+#### Extract
+Extract means remove the highest key of the tree. Right after taking out the highest nodes,
+we will take the last node of the tree to the root position. Then we swap with its larger child.
+
+#### Time complexity
+Heapify up or down is depending on the height of the tree => 0(h) (extract or insert)
+
+If you want to replace to it the number of elements of the array => O(logn) because the height
+and the number of indices have a logarithmic relation.
+
+#### Implement
+
+```go
+package main
+
+import "fmt"
+
+// MaxHeap struct has a slice that holds the array
+type MaxHeap struct {
+	array []int
+}
+
+// Insert adds an element to the heap
+func (h *MaxHeap) Insert(key int) {
+	h.array = append(h.array, key)
+	h.maxHeapifyUp(len(h.array) - 1)
+}
+
+// Extract returns the largest key, and removes it from the heap.
+func (h *MaxHeap) Extract() int {
+	extracted := h.array[0]
+	l := len(h.array) - 1
+
+	if len(h.array) == 0 {
+		fmt.Print("cannot extract because array length is 0")
+		return -1
+	}
+
+	h.array[0] = h.array[l]
+	h.array = h.array[:l]
+
+	h.maxHeapifyDown(0)
+	return extracted
+}
+
+// maxHeapifyUp will heapify from bottom top
+func (h *MaxHeap) maxHeapifyUp(index int) {
+	for h.array[parent(index)] < h.array[index] {
+		h.swap(parent(index), index)
+		index = parent(index)
+	}
+}
+
+// maxHeapifyDown will be heapify top to bottom
+func (h *MaxHeap) maxHeapifyDown(index int) {
+
+	// loop while index at least one child
+	lastIndex := len(h.array) - 1
+	l, r := left(index), right(index)
+	childToCompare := 0
+	for l <= lastIndex {
+		if l == lastIndex {
+			// when left child is the only child
+			childToCompare = l
+		} else if h.array[l] > h.array[r] {
+			//when left child is larger
+			childToCompare = l
+		} else {
+			// when right child is larger
+			childToCompare = r
+		}
+
+		// compare array value of current index
+		// to larger child and swap if smaller
+
+		if h.array[index] < h.array[childToCompare] {
+			h.swap(index, childToCompare)
+			index = childToCompare
+			l, r = left(index), right(index)
+		} else {
+			// it means it find the right place
+			return
+		}
+
+	}
+}
+
+// get the parent index
+func parent(i int) int {
+	return (i - 1) / 2
+}
+
+// get the left child index
+func left(i int) int {
+	return 2*i + 2
+}
+
+// get the right child index
+func right(i int) int {
+	return 2*i + 1
+}
+
+// swap keys in the array
+func (h *MaxHeap) swap(i1, i2 int) {
+	h.array[i1], h.array[i2] = h.array[i2], h.array[i1]
+}
+
+func main() {
+	m := &MaxHeap{}
+	fmt.Println(m)
+	buildHeap := []int{10, 20, 30, 5, 7, 9, 11, 13, 15, 17}
+	for _, v := range buildHeap {
+		m.Insert(v)
+		fmt.Println(m)
+	}
+
+	for i := 0; i < 5; i++ {
+		m.Extract()
+		fmt.Println(m)
+	}
+}
+```
+
+
+
 
 
 ## Pointers
