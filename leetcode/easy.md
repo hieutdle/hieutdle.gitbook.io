@@ -65,3 +65,61 @@ func isPalindrome(x int) bool {
   return x == revertedNumber || x == revertedNumber/10;
 }
 ```
+
+## 13. Roman to Integer
+
+```go
+Symbol       Value
+I             1
+V             5
+X             10
+L             50
+C             100
+D             500
+M             1000
+```
+
+There are six instances where subtraction is used:
+* `I` can be placed before `V` (5) and `X` (10) to make 4 and 9.
+* `X` can be placed before `L` (50) and `C` (100) to make 40 and 90.
+* `C` can be placed before `D` (500) and `M` (1000) to make 400 and 900.
+
+```go
+Input: s = "MCMXCIV"
+Output: 1994
+Explanation: M = 1000, CM = 900, XC = 90 and IV = 4.
+```
+
+```go
+func romanToInt(s string) int {
+    romanSymbol := map[byte]int{
+        'I': 1,
+	    'V': 5,
+	    'X': 10,
+	    'L': 50,
+	    'C': 100,
+	    'D': 500,
+	    'M': 1000,
+    }
+    l := len(s)
+    if l == 0 {
+		// If nothing
+        return 0
+    } else if l == 1{
+		// If just one character
+        return romanSymbol[s[0]]
+    }
+    
+    sum := romanSymbol[s[l - 1]]
+    
+    for i := l - 2; i >= 0; i-- {
+		// Go from the right to the left. If previous character is smaller => subtract
+        if romanSymbol[s[i]] < romanSymbol[s[i+1]] {
+            sum -= romanSymbol[s[i]]
+        } else {
+            sum += romanSymbol[s[i]]
+        }
+    }
+    return sum
+}
+```

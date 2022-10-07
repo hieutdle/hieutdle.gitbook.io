@@ -697,12 +697,144 @@ func main() {
 ```
 
 
-
-
-
 ## Pointers
+*:
+* `*int`: this whole thing is a type(pointer type, `int` is a base)
+* `*p`: * in front of variable => operator returns what p is pointing to (print value the pointer 
+pointing to - dereferencing)
+* value of p is now the address of the value
+
+```go
+package main
+
+import "fmt"
+
+func main() {
+ i, j := 42, 2701
+
+ p := &i
+ fmt.Println(*p) // 42
+ fmt.Printf("%T\n", p)
+ *p = 21        // change value of i, still keep the address of i
+ fmt.Println(i) // print 21
+
+ p = &j         // now point to j
+ *p = *p / 37   // change value of j, still keep the address of j
+ fmt.Println(j) // 73
+}
+```
+
+Why you pointer? Because you can access the variable through pointer 
+from different part of the program rather than copy it each time you use 
+or want to manipulate.
+
+Goroutines: independent path of execution - stack of memory
 
 
+```go
+func main(){
+	a :=4
+	squareVal(a)
+}
+
+func squareVal(v int)  {
+    v *= v
+	fmt.Println(&v,v)
+}
+```
+
+<img src="../images/images-courses/pointer.png" width="360" height=411 />
+
+They are isolated frames. 
+
+After squareVal create a copy of `a` 
+=> `v` with value of 16, when the active frame return to main, `a` still has the value of 4.
+
+```go
+func main(){
+    a :=4
+    squareAdd(&a)
+}
+
+func squareAdd(p *int){
+	*p *= *p
+	fmt.Println(p,*p)
+}
+```
+<img src="../images/images-courses/pointer2.png" width="358" height=341 />
+
+#### return `m` (value) and `&m` (pointer)
+
+```go
+package main
+
+import "fmt"
+
+type person struct {
+	name string
+	age  int
+}
+
+func initPerson() person {
+	m:= person{name:"noname", age:50}
+	return m
+}
+
+func main()  {
+	fmt.Println(initPerson())
+}
+
+```
+
+When we call initPerson, we create `m`. Then you change the value of `m`,
+because of the isolation characteristic. We can not send `m`
+to the `main()` function. Instead, we make a copy of `m`. 
+
+<img src="../images/images-courses/pointer3.png" width=auto height=auto />
+
+Let's return the address of `m`
+
+```go
+func initPerson() *person {
+       m:= person{name:"noname", age:50}
+	   fmt.Printf("initPerson -> %p\n",&m)
+       return &m
+}
+
+func main()  {
+	fmt.Println(initPerson())
+    fmt.Printf("main -> %p\n",initPerson())
+}
+```
+
+<img src="../images/images-courses/pointer4.png" width=auto height=auto />
+
+We have an address pointing to `m`, but when the 
+`initPerson()` function finish. That frame is become invalid so the address we copied into the active
+frame is useless. That where heaps come in so heaps is going to solve this problem for us.
+The name heaps is different from data structure heaps.
+
+The compiler will analyze what's going on and figures out that this may cause the problem and copy `m` 
+to the heap. Then the `initPerson()` function will return the address of `m` in the heap. After the return when
+the address of `m` is copied to the frame of the `main()` function. We would be able to access 'm` with that address.
+
+<img src="../images/images-courses/pointer5.png" width=auto height=auto />
+
+
+#### Garbage Collector
+
+We are doing this in the cost of heap allocation. Which can be a burden for the garbage collector and it can 
+cost us performance. 
+
+Stacks don't need garbage collector because it is self-cleaning. When function is called and finish, it will discards
+ the frame and everything inside it. When another function is called, the space will be used by other frames.
+
+If we put something in the heap, that will create job for the garbage collector. 
+
+There is a specific algorithms for the garbage collector automatically sets the memory free for ones that 
+we don't use and just keep the ones that we need.
+
+<img src="../images/images-courses/pointer6.png" width=auto height=auto />
 
 ### Algorithms
 
