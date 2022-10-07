@@ -29,7 +29,7 @@ This is the place I keep notes of what I learned and what I accomplished. This b
 
 ### Courses
 
-1. [Data Structures and Algorithms in Go](courses/data-structures-algorithms-pointers.md)
+1. [Data Structures, Algorithms and Pointers in Go](courses/data-structures-algorithms-pointers.md)
 1. [Data Management for Digital Health](courses/data-management-for-digital-health.md)
 2. [Digital Health and Research Systems, Data Interoperability](courses/digital-health-and-research-systems-data-interoperability.md)
 
