@@ -743,7 +743,7 @@ func squareVal(v int)  {
 }
 ```
 
-<img src="../images/images-courses/pointer.png" width="360" height=411 />
+![](../images/images-courses/pointer.png)	
 
 They are isolated frames. 
 
@@ -761,7 +761,7 @@ func squareAdd(p *int){
 	fmt.Println(p,*p)
 }
 ```
-<img src="../images/images-courses/pointer2.png" width="358" height=341 />
+![](../images/images-courses/pointer2.png)	
 
 #### return `m` (value) and `&m` (pointer)
 
@@ -790,7 +790,7 @@ When we call initPerson, we create `m`. Then you change the value of `m`,
 because of the isolation characteristic. We can not send `m`
 to the `main()` function. Instead, we make a copy of `m`. 
 
-<img src="../images/images-courses/pointer3.png" width=auto height=auto />
+![](../images/images-courses/pointer3.png)
 
 Let's return the address of `m`
 
@@ -807,7 +807,7 @@ func main()  {
 }
 ```
 
-<img src="../images/images-courses/pointer4.png" width=auto height=auto />
+![](../images/images-courses/pointer4.png)
 
 We have an address pointing to `m`, but when the 
 `initPerson()` function finish. That frame is become invalid so the address we copied into the active
@@ -818,7 +818,7 @@ The compiler will analyze what's going on and figures out that this may cause th
 to the heap. Then the `initPerson()` function will return the address of `m` in the heap. After the return when
 the address of `m` is copied to the frame of the `main()` function. We would be able to access 'm` with that address.
 
-<img src="../images/images-courses/pointer5.png" width=auto height=auto />
+![](../images/images-courses/pointer5.png)
 
 
 #### Garbage Collector
@@ -834,7 +834,7 @@ If we put something in the heap, that will create job for the garbage collector.
 There is a specific algorithms for the garbage collector automatically sets the memory free for ones that 
 we don't use and just keep the ones that we need.
 
-<img src="../images/images-courses/pointer6.png" width=auto height=auto />
+![](../images/images-courses/pointer6.png)
 
 ### Algorithms
 
