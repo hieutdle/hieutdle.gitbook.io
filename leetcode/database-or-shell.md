@@ -1,6 +1,9 @@
 # 🗄 Database | Shell
 
 ## 1393. Capital Gain/Loss
+
+The Capital gain/loss of a stock is the total gain or loss after buying and selling the stock one or many times.
+
 ```sql
 Input: 
 Stocks table:
