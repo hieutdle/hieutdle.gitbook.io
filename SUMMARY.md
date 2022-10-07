@@ -17,11 +17,11 @@
 * [🥉 Easy](leetcode/easy.md)
 * [🥈 Medium](leetcode/medium.md)
 * [🥇 Hard](leetcode/hard.md)
-* [🔭 Database | Shell](leetcode/database-or-shell.md)
+* [🗄 Database | Shell](leetcode/database-or-shell.md)
 
 ## 💯 Courses
 
-* [🔯 Data Structures, Algorithms and Pointers in Go](courses/data-structures-algorithms-pointers.md)
+* [Data Structures, Algorithms and Pointers in Go](courses/data-structures-algorithms-pointers.md)
 * [Data Management for Digital Health](courses/data-management-for-digital-health.md)
 * [Digital Health and Research Systems, Data Interoperability](courses/digital-health-and-research-systems-data-interoperability.md)
 
