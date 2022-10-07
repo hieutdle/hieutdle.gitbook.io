@@ -17,7 +17,7 @@
 * [🥉 Easy](leetcode/easy.md)
 * [🥈 Medium](leetcode/medium.md)
 * [🥇 Hard](leetcode/hard.md)
-* [🗄 Database | Shell](leetcode/database-or-shell.md)
+* [🗄 Database | Shell](leetcode/database-shell.md)
 
 ## 💯 Courses
 
