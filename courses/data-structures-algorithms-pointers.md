@@ -800,7 +800,7 @@ We have an address pointing to `m`, but when the `initPerson()` function finish.
 
 The compiler will analyze what's going on and figures out that this may cause the problem and copy `m` to the heap. Then the `initPerson()` function will return the address of `m` in the heap. After the return when the address of `m` is copied to the frame of the `main()` function. We would be able to access 'm\` with that address.
 
-<figure><img src="../images/images-courses/pointer5.png" alt="test"><figcaption><p>sadasdas</p></figcaption></figure>
+![](../images/images-courses/pointer5.png)
 
 #### Garbage Collector
 
