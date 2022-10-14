@@ -123,3 +123,67 @@ func romanToInt(s string) int {
     return sum
 }
 ```
+
+## 1470. Shuffle the Array
+
+Given the array nums consisting of 2n elements in the form `[x1,x2,...,xn,y1,y2,...,yn]`.
+
+Return the array in the form `[x1,y1,x2,y2,...,xn,yn]`.
+
+```go
+Input: nums = [2,5,1,3,4,7], n = 3
+Output: [2,3,5,4,1,7] 
+Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is [2,3,5,4,1,7].
+```
+Bad Solution:
+```go
+func shuffle(nums []int, n int) []int {
+    shuffle := make([]int,2*n)
+    for i:=0;i<2*n;i++{
+        if i % 2 == 0{
+            shuffle[i] =  nums[i/2]
+        } else {
+            shuffle[i] = nums[n+(i/2)]
+        }
+    }
+    return shuffle
+}
+```
+New Solution:
+```go
+func shuffle(nums []int, n int) []int {
+	shuffle := make([]int, 0, 2*n)
+	for i := 0; i < n; i++ {
+		shuffle = append(shuffle, nums[i], nums[i+n])
+	}
+	return shuffle
+}
+```
+
+## 2114. Maximum Number of Words Found in Sentences
+
+Return the maximum number of words that appear in a single sentence.
+
+
+```go
+Input: sentences = ["please wait", "continue to fight", "continue to win"]
+Output: 3
+```
+
+```go
+func mostWordsFound(sentences []string) int {
+    max := 0 
+    for _ , v := range sentences {
+        count := 1
+        for _, v2 := range v{
+            if string(v2) == " " {
+                count++
+            }
+        }
+        if count > max {
+            max = count
+        }
+    }
+    return max
+}
+```
