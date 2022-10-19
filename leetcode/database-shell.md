@@ -124,3 +124,44 @@ WHERE visit_id NOT IN (
 )
 GROUP BY customer_id;
 ```
+
+## 1484. Group Sold Products By The Date
+
+Write an SQL query to find for each date the number of different products sold and their names.
+
+```go
+Input: 
+Activities table:
++------------+------------+
+| sell_date  | product     |
++------------+------------+
+| 2020-05-30 | Headphone  |
+| 2020-06-01 | Pencil     |
+| 2020-06-02 | Mask       |
+| 2020-05-30 | Basketball |
+| 2020-06-01 | Bible      |
+| 2020-06-02 | Mask       |
+| 2020-05-30 | T-Shirt    |
++------------+------------+
+Output: 
++------------+----------+------------------------------+
+| sell_date  | num_sold | products                     |
++------------+----------+------------------------------+
+| 2020-05-30 | 3        | Basketball,Headphone,T-shirt |
+| 2020-06-01 | 2        | Bible,Pencil                 |
+| 2020-06-02 | 1        | Mask                         |
++------------+----------+------------------------------+
+```
+MySQL
+```sql
+SELECT sell_date, count(DISTINCT product) as num_sold, GROUP_CONCAT(DISTINCT product) as products
+FROM Activities
+GROUP BY sell_date
+```
+
+Postgres
+```sql
+SELECT sell_date, count(DISTINCT product) as num_sold, string_agg(DISTINCT product,',') as products
+FROM Activities
+GROUP BY sell_date
+```
