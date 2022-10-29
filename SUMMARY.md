@@ -4,7 +4,7 @@
 
 ## ☯ Go
 
-* [Learning Go \[First Book\]](go/learning-go.md)
+* [Learning Go \[Book\]](go/learning-go.md)
 
 ## 💸 Algorithms & Data Structures
 
@@ -26,4 +26,5 @@
 
 ## 💻 Computer Science
 
+* [Networking](computer-science/networking.md)
 * [UTF-8](computer-science/utf-8.md)
