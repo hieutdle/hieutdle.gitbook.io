@@ -1,4 +1,4 @@
-# Data Structures in Go
+# Data Structures, Algorithms and Pointers in Go
 
 ## Golang Tutorials
 

@@ -15,6 +15,7 @@
 ## 🌠 Database
 
 * [Big Data Systems](database/big-data-systems.md)
+* [Data Processing Pipelines](database/data-processing-pipelines.md)
 * [Leetcode](database/leetcode.md)
 
 ## ☁ Cloud
