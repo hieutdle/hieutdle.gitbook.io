@@ -22,6 +22,7 @@
 
 * [Google Cloud Platform](cloud/google-cloud-platform.md)
 * [Terraform: Up & Running](cloud/terraform.md)
+* [The Docker Handbook](cloud/the-docker-handbook.md)
 
 ## 💻 Computer Science
 
