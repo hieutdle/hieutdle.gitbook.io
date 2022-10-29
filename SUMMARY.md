@@ -8,8 +8,9 @@
 
 ## 💸 Algorithms & Data Structures
 
-* [Data Structures, Algorithms and Pointers in Go](algorithms-and-data-structures/data-structures-algorithms-pointers.md)
-* [Leetcode](algorithms-and-data-structures/easy.md)
+* [Data Structures in Go](algorithms-and-data-structures/data-structures.md)
+* [Algorithms](algorithms-and-data-structures/algorithms.md)
+* [Leetcode](algorithms-and-data-structures/leetcode.md)
 
 ## 🌠 Database
 

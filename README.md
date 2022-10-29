@@ -20,7 +20,7 @@ This is the place I keep notes of what I learned and what I accomplished. This b
 
 ### LeetCode
 
-1. [Easy](algorithms-and-data-structures/easy.md)
+1. [Easy](algorithms-and-data-structures/leetcode.md)
 2. [Medium](broken-reference)
 3. [Hard](broken-reference)
 
@@ -30,7 +30,7 @@ This is the place I keep notes of what I learned and what I accomplished. This b
 
 ### Courses
 
-1. [Data Structures, Algorithms and Pointers in Go](algorithms-and-data-structures/data-structures-algorithms-pointers.md)
+1. [Data Structures, Algorithms and Pointers in Go](algorithms-and-data-structures/data-structures.md)
 2. [Data Management for Digital Health](broken-reference)
 3. [Digital Health and Research Systems, Data Interoperability](broken-reference)
 
