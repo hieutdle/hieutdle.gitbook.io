@@ -8,9 +8,9 @@
 
 ## 💸 Algorithms & Data Structures
 
-* [Data Structures in Go](algorithms-and-data-structures/data-structures.md)
+* [Data Structures in Go](algorithms-and-data-structures/data-structures-algorithms-pointers.md)
 * [Algorithms](algorithms-and-data-structures/algorithms.md)
-* [Leetcode](algorithms-and-data-structures/leetcode.md)
+* [Leetcode](algorithms-and-data-structures/easy.md)
 
 ## 🌠 Database
 
@@ -20,6 +20,7 @@
 ## ☁ Cloud
 
 * [Google Cloud Platform](cloud/google-cloud-platform.md)
+* [Terraform: Up & Running](cloud/terraform.md)
 
 ## 💻 Computer Science
 
