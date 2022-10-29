@@ -1,4 +1,8 @@
-# 📔 Learning Go: An Idiomatic Approach to Real-World Go Programming
+---
+coverY: 0
+---
+
+# Learning Go \[First Book]
 
 ## 📔 Learning Go: An Idiomatic Approach to Real-World Go Programming
 

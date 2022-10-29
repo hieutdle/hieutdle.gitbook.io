@@ -1,4 +1,4 @@
-# 🗄 Database | Shell
+# Leetcode
 
 ## 1393. Capital Gain/Loss
 
@@ -81,6 +81,7 @@ ORDER BY store ASC
 ```
 
 ## 1581. Customer Who Visited but Did Not Make Any Transactions
+
 ```sql
 Input:
 Visits
@@ -152,7 +153,9 @@ Output:
 | 2020-06-02 | 1        | Mask                         |
 +------------+----------+------------------------------+
 ```
+
 MySQL
+
 ```sql
 SELECT sell_date, count(DISTINCT product) as num_sold, GROUP_CONCAT(DISTINCT product) as products
 FROM Activities
@@ -160,6 +163,7 @@ GROUP BY sell_date
 ```
 
 Postgres
+
 ```sql
 SELECT sell_date, count(DISTINCT product) as num_sold, string_agg(DISTINCT product,',') as products
 FROM Activities

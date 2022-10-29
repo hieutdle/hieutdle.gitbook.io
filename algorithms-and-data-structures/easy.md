@@ -1,15 +1,15 @@
-# 🥉 Easy
-
+# Leetcode
 
 ## 1. Two Sum
- Given an array of integers nums and an integer target.
- Return indices of the two numbers such that they add up to target.
- You may assume that each input would have exactly one solution.
+
+Given an array of integers nums and an integer target. Return indices of the two numbers such that they add up to target. You may assume that each input would have exactly one solution.
+
 ```
 Input: nums = [2,7,11,15], target = 9
 Output: [0,1]
 Explanation: Because nums[0] + nums[1] == 9, we return [0, 1].
 ```
+
 ```go
 func twoSum(nums []int, target int) []int {
         n := len(nums)
@@ -80,6 +80,7 @@ M             1000
 ```
 
 There are six instances where subtraction is used:
+
 * `I` can be placed before `V` (5) and `X` (10) to make 4 and 9.
 * `X` can be placed before `L` (50) and `C` (100) to make 40 and 90.
 * `C` can be placed before `D` (500) and `M` (1000) to make 400 and 900.
@@ -135,7 +136,9 @@ Input: nums = [2,5,1,3,4,7], n = 3
 Output: [2,3,5,4,1,7] 
 Explanation: Since x1=2, x2=5, x3=1, y1=3, y2=4, y3=7 then the answer is [2,3,5,4,1,7].
 ```
+
 Bad Solution:
+
 ```go
 func shuffle(nums []int, n int) []int {
     shuffle := make([]int,2*n)
@@ -149,7 +152,9 @@ func shuffle(nums []int, n int) []int {
     return shuffle
 }
 ```
+
 New Solution:
+
 ```go
 func shuffle(nums []int, n int) []int {
 	shuffle := make([]int, 0, 2*n)
@@ -163,7 +168,6 @@ func shuffle(nums []int, n int) []int {
 ## 2114. Maximum Number of Words Found in Sentences
 
 Return the maximum number of words that appear in a single sentence.
-
 
 ```go
 Input: sentences = ["please wait", "continue to fight", "continue to win"]

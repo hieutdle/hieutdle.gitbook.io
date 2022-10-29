@@ -2,30 +2,24 @@
 
 * [🏠 Hieu Le's personal blog](README.md)
 
-## 📖 Books
+## ☯ Go
 
-* [📔 Learning Go: An Idiomatic Approach to Real-World Go Programming](books/learning-go-idiomatic-approach.md)
-* [📕 Writing An Interpreter In Go](books/writing-an-interpreter-in-go.md)
-* [📘 Cloud Native Go - Building Reliable Services in Unreliable Environments](books/cloud-native-go.md)
+* [Learning Go \[First Book\]](go/learning-go.md)
 
-## 💻 Projects
+## 💸 Algorithms & Data Structures
 
-* [📜 Scrolls](projects/dolphin.md)
+* [Data Structures, Algorithms and Pointers in Go](algorithms-and-data-structures/data-structures-algorithms-pointers.md)
+* [Leetcode](algorithms-and-data-structures/easy.md)
 
-## 💸 LeetCode
+## 🌠 Database
 
-* [🥉 Easy](leetcode/easy.md)
-* [🥈 Medium](leetcode/medium.md)
-* [🥇 Hard](leetcode/hard.md)
-* [🗄 Database | Shell](leetcode/database-shell.md)
+* [Big Data Systems](database/big-data-systems.md)
+* [Leetcode](database/leetcode.md)
 
-## 💯 Courses
+## ☁ Cloud
 
-* [Big Data Systems](courses/big-data-systems.md)
-* [Data Structures, Algorithms and Pointers in Go](courses/data-structures-algorithms-pointers.md)
-* [Data Management for Digital Health](courses/data-management-for-digital-health.md)
-* [Digital Health and Research Systems, Data Interoperability](courses/digital-health-and-research-systems-data-interoperability.md)
+* [Google Cloud Platform](cloud/google-cloud-platform.md)
 
-## 🗒 Posts
+## 💻 Computer Science
 
-* [Characters, Symbols and the Unicode Miracle](posts/utf-8.md)
+* [UTF-8](computer-science/utf-8.md)

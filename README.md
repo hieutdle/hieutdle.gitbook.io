@@ -7,35 +7,36 @@ This is the place I keep notes of what I learned and what I accomplished. This b
 * Notes from **books** (mostly Go) that I have read.
 * Descriptions of my **projects**.
 * **LeetCode**'s problems
-* Summarise of **courses** (HPI Digital Health, GCP, DS&A in Go, ...).
+* Summarise of **courses** (HPI Digital Health, GCP, DS\&A in Go, ...).
 * **Posts** about exciting things that I found during my journey.
 
 ## Table of contents
 
 ### Books
 
-1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](books/learning-go-idiomatic-approach.md)
-2. [Writing An Interpreter In Go](books/writing-an-interpreter-in-go.md)
-3. [Cloud Native Go - Building Reliable Services in Unreliable Environments](books/cloud-native-go.md)
+1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](go/learning-go.md)
+2. [Writing An Interpreter In Go](broken-reference)
+3. [Cloud Native Go - Building Reliable Services in Unreliable Environments](broken-reference)
 
 ### LeetCode
 
-1. [Easy](leetcode/easy.md)
-2. [Medium](leetcode/medium.md)
-3. [Hard](leetcode/hard.md)
+1. [Easy](algorithms-and-data-structures/easy.md)
+2. [Medium](broken-reference)
+3. [Hard](broken-reference)
+
 ### Projects
 
-1. [Dolphin](projects/dolphin.md)
+1. [Dolphin](broken-reference)
 
 ### Courses
 
-1. [Data Structures, Algorithms and Pointers in Go](courses/data-structures-algorithms-pointers.md)
-1. [Data Management for Digital Health](courses/data-management-for-digital-health.md)
-2. [Digital Health and Research Systems, Data Interoperability](courses/digital-health-and-research-systems-data-interoperability.md)
+1. [Data Structures, Algorithms and Pointers in Go](algorithms-and-data-structures/data-structures-algorithms-pointers.md)
+2. [Data Management for Digital Health](broken-reference)
+3. [Digital Health and Research Systems, Data Interoperability](broken-reference)
 
 ### Posts
 
-1. [Characters, Symbols and the Unicode Miracle](posts/utf-8.md)
+1. [Characters, Symbols and the Unicode Miracle](computer-science/utf-8.md)
 
 ## Background
 
