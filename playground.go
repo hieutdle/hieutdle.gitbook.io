@@ -1,17 +1,18 @@
 package main
 
-import "fmt"
-
-type person struct {
-	name string
-	age  int
-}
-
-func initPerson() person {
-	m := person{name: "noname", age: 50}
-	return m
-}
+import (
+	"bufio"
+	"fmt"
+	"strings"
+)
 
 func main() {
-	fmt.Println(initPerson())
+	var x string = `this is
+my multiline
+string`
+
+	scanner := bufio.NewScanner(strings.NewReader(x))
+	for scanner.Scan() {
+		fmt.Println(scanner.Text())
+	}
 }
