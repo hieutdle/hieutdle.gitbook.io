@@ -5,11 +5,12 @@
 ## ☯ Go
 
 * [Learning Go \[Book\]](go/learning-go.md)
+* [Go Class \[Matt KØDVB\]](go/go-class-matt-kodvb.md)
 
 ## 💸 Algorithms & Data Structures
 
-* [Data Structures in Go](algorithms-and-data-structures/data-structures-algorithms-pointers.md)
-* [Algorithms](algorithms-and-data-structures/algorithms.md)
+* [Data Structures \[Junmin Lee\]](algorithms-and-data-structures/data-structures-algorithms-pointers.md)
+* [Algorithms \[Jon Calhoun\]](algorithms-and-data-structures/algorithms-jon-calhoun.md)
 * [Leetcode](algorithms-and-data-structures/easy.md)
 
 ## 🌠 Database
