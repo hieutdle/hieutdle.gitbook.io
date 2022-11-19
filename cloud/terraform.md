@@ -1,2 +1,0 @@
-# Terraform: Up & Running
-
