@@ -1,6 +1,6 @@
 # Table of contents
 
-* [🏠 Hieu Le's personal blog](README.md)
+* [🏠 Hieu's Go blog](README.md)
 
 ## ☯ Go
 
@@ -15,6 +15,7 @@
 ## 🌠 Database
 
 * [Inverted Index](database/inverted-index.md)
+* [sqlc & migrate](database/sqlc-and-migrate.md)
 
 ## 🏅 Challenges
 
