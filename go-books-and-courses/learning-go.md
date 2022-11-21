@@ -1,5 +1,7 @@
 ---
-description: '📔 Learning Go: An Idiomatic Approach to Real-World Go Programming'
+description: >-
+  📔  Learning Go: An Idiomatic Approach to Real-World Go Programming by John
+  Bodner
 ---
 
 # Learning Go \[Book]
