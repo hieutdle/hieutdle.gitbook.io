@@ -1,10 +1,16 @@
 ---
-coverY: 0
+description: >-
+  📔  Learning Go: An Idiomatic Approach to Real-World Go Programming by John
+  Bodner
 ---
 
 # Learning Go \[Book]
 
+<<<<<<< HEAD
 ~~## 📔~~ Learning Go: An Idiomatic Approach to Real-World Go Programming
+=======
+
+>>>>>>> e1a5fefd569cfa68070915dc5ce03ca0d608fbd1
 
 ### Primitive Types and Declarations
 
