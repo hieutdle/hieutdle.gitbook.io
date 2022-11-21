@@ -9,6 +9,3 @@
 For me, I think the newer, the better.
 
 ## 1. Hello world!
-
-
-

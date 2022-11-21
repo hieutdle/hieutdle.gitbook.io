@@ -2,15 +2,15 @@
 
 * [🏠 Hieu's Go blog](README.md)
 
-## ☯ Go
+## ☯ Go Books & Courses
 
 * [Learning Go \[Book\]](go-books-and-courses/learning-go.md)
 * [Go Class \[Matt KØDVB\]](go-books-and-courses/go-class.md)
 
-## 💸 Algorithms & Data Structures
+## 💸 Data Structures & Algorithms
 
-* [Data Structures \[Junmin Lee\]](algorithms-and-data-structures/data-structures-algorithms.md)
-* [Algorithms \[Jon Calhoun\]](algorithms-and-data-structures/algorithms-jon-calhoun.md)
+* [Data Structures \[Junmin Lee\]](data-structures-and-algorithms/data-structures-algorithms.md)
+* [Algorithms \[Jon Calhoun\]](data-structures-and-algorithms/algorithms-jon-calhoun.md)
 
 ## 🌠 Database
 
@@ -19,8 +19,8 @@
 
 ## 🏅 Challenges
 
-* [LeetCode \[Algorithms\]](challenges/leetcode-algorithms.md)
 * [Codewars](challenges/codewars.md)
+* [LeetCode \[Algorithms\]](challenges/leetcode-algorithms.md)
 * [LeetCode \[Database\]](challenges/leetcode-database.md)
 
 ## 💻 Computer Science
