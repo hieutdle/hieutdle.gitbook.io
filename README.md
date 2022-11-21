@@ -8,11 +8,13 @@ Note that all posts in this blog are **Go** related or have **Go** examples.
 
 ### Go Books and Courses
 
-1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](go/learning-go.md)
+1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](go-books-and-courses/learning-go.md)
+2. [Go Class - Matt KØDVB](go-books-and-courses/go-class.md)
 
-### LeetCode
+### Algorithms and Data Structures
 
-1. [Easy](challenges/leetcode-algorithms.md)
+1. [D](algorithms-and-data-structures/data-structures-algorithms.md)
+
 2. [Medium](broken-reference)
 3. [Hard](broken-reference)
 

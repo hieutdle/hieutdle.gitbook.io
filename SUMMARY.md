@@ -4,8 +4,8 @@
 
 ## ☯ Go
 
-* [Learning Go \[Book\]](go/learning-go.md)
-* [Go Class \[Matt KØDVB\]](go/go-class.md)
+* [Learning Go \[Book\]](go-books-and-courses/learning-go.md)
+* [Go Class \[Matt KØDVB\]](go-books-and-courses/go-class.md)
 
 ## 💸 Algorithms & Data Structures
 
