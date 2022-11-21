@@ -1,6 +1,10 @@
+---
+description: '📔 Learning Go: An Idiomatic Approach to Real-World Go Programming'
+---
+
 # Learning Go \[Book]
 
-## 📔 Learning Go: An Idiomatic Approach to Real-World Go Programming
+
 
 ### Primitive Types and Declarations
 
