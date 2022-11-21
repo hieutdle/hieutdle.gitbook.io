@@ -6,8 +6,6 @@ Note that all posts in this blog are **Go** related or have **Go** examples.
 
 ## Table of contents
 
-* [🏠 Hieu's Go blog](README.md)
-
 ### ☯ Go Books & Courses
 
 * [Learning Go \[Book\]](go-books-and-courses/learning-go.md)
