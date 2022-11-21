@@ -4,40 +4,48 @@ This is the place I keep notes of what I learned and what I accomplished.
 
 Note that all posts in this blog are **Go** related or have **Go** examples.
 
-## Table of contents
+# Table of contents
 
-### Go Books and Courses
+* [🏠 Hieu's Go blog](README.md)
 
-1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](go-books-and-courses/learning-go.md)
-2. [Go Class - Matt KØDVB](go-books-and-courses/go-class.md)
+## ☯ Go Books & Courses
 
-### Algorithms and Data Structures
+* [Learning Go \[Book\]](go-books-and-courses/learning-go.md)
+* [Go Class \[Matt KØDVB\]](go-books-and-courses/go-class.md)
 
-1. [D](data-structures-and-algorithms/data-structures-algorithms.md)
-2. [Medium](broken-reference/)
-3. [Hard](broken-reference/)
+## 💸 Data Structures & Algorithms
 
-### Projects
+* [Data Structures \[Junmin Lee\]](data-structures-and-algorithms/data-structures-algorithms.md)
+* [Algorithms \[Jon Calhoun\]](data-structures-and-algorithms/algorithms-jon-calhoun.md)
 
-1. [Dolphin](broken-reference/)
+## 🌠 Database
 
-### Courses
+* [Inverted Index](database/inverted-index.md)
+* [sqlc & migrate](database/sqlc-and-migrate.md)
 
-1. [Data Structures, Algorithms and Pointers in Go](data-structures-and-algorithms/data-structures-algorithms.md)
-2. [Data Management for Digital Health](broken-reference/)
-3. [Digital Health and Research Systems, Data Interoperability](broken-reference/)
+## 🏅 Challenges
 
-### Posts
+* [Codewars](challenges/codewars.md)
+* [LeetCode \[Algorithms\]](challenges/leetcode-algorithms.md)
+* [LeetCode \[Database\]](challenges/leetcode-database.md)
 
-1. [Characters, Symbols and the Unicode Miracle](computer-science/rune-byte-utf-8.md)
+## 💻 Computer Science
 
-## Background
+* [Concurrency - Parallelism](computer-science/concurrency-parallelism.md)
+* [Rune - Byte \[UTF-8\]](computer-science/rune-byte-utf-8.md)
 
-I was a Data Engineer working on AWS in Vietnam before. But a lot of things happen, and now I want to change my career to Software Engineer after coming to Germany.
+## ☁ CLoud
 
-I am currently studying Master in Digital Health at Hasso Plattner Institute, Go Programming Language, and Google Cloud Platform.
+* [Google Cloud - Docker](cloud/google-cloud-docker.md)
+
+# Background
+
+I am currently studying Master's degree in Digital Health at Hasso Plattner Institute.
+
+I have a Bachelor of Computer Science from the Frankfurt University of Applied Sciences.
 
 * [Linkedin](https://www.linkedin.com/in/ledinhtrunghieu/)
 * [Github](https://github.com/ledinhtrunghieu)
-* [Leetcode](https://leetcode.com/)
+* [LeetCode](https://leetcode.com/ledinhtrunghieu/)
+* [Codewars](https://www.codewars.com/users/ledinhtrunghieu)
 * [Legacy DE blog](https://ledinhtrunghieu.github.io/content)
