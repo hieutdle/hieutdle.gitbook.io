@@ -1,3 +1,7 @@
+---
+coverY: 0
+---
+
 # 🏠 Hieu's Go blog
 
 This is the place I keep notes of what I learned and what I accomplished.
