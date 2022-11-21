@@ -23,7 +23,7 @@ Note that all posts in this blog are **Go** related or have **Go** examples.
 ### 🌠 Database
 
 * [Inverted Index](database/inverted-index.md)
-* [sqlc & migrate](database/sqlc-and-migrate.md)
+* [sqlc & migrate](broken-reference)
 
 ### 🏅 Challenges
 

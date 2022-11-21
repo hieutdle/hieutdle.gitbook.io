@@ -6,6 +6,7 @@
 
 * [Learning Go \[Book\]](go-books-and-courses/learning-go.md)
 * [Go Class \[Matt KØDVB\]](go-books-and-courses/go-class.md)
+* [Backend Master Class](go-books-and-courses/backend-master-class.md)
 
 ## 💸 Data Structures & Algorithms
 
@@ -15,7 +16,6 @@
 ## 🌠 Database
 
 * [Inverted Index](database/inverted-index.md)
-* [sqlc & migrate](database/sqlc-and-migrate.md)
 
 ## 🏅 Challenges
 
