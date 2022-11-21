@@ -1,22 +1,14 @@
 # 🏠 Hieu Le's personal blog
 
-This is the place I keep notes of what I learned and what I accomplished. This blog is also the start of my journey in Germany.
+This is the place I keep notes of what I learned and what I accomplished.
 
-## Why
-
-* Notes from **books** (mostly Go) that I have read.
-* Descriptions of my **projects**.
-* **LeetCode**'s problems
-* Summarise of **courses** (HPI Digital Health, GCP, DS\&A in Go, ...).
-* **Posts** about exciting things that I found during my journey.
+Note that all posts in this blog are **Go** related or have **Go** examples.
 
 ## Table of contents
 
-### Books
+### Go Books and Courses
 
 1. [Learning Go: An Idiomatic Approach to Real-World Go Programming](go/learning-go.md)
-2. [Writing An Interpreter In Go](broken-reference)
-3. [Cloud Native Go - Building Reliable Services in Unreliable Environments](broken-reference)
 
 ### LeetCode
 
