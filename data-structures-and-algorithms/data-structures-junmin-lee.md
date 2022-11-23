@@ -18,7 +18,7 @@ A module is a collection of related go packages that are released together.
 
 ## Linked List
 
-Linked List put the values in nodes. Nodes are linked to each others by containing address of the next nodes.
+Linked List put the values in nodes. Nodes are linked to each other by containing address of the next nodes.
 
 **Benefits:**
 
@@ -28,11 +28,11 @@ Linked List put the values in nodes. Nodes are linked to each others by containi
 
 * Travel and replace the value of the node: **0(n)**, arrays cost just **O(1)**
 
-#### Doubly linkedin list
+### Doubly linked list
 
 Contains the address of the next and also the previous node
 
-#### Implement
+### Implement
 
 ```go
 package main
@@ -111,12 +111,12 @@ func main() {
 }
 ```
 
-### Stacks
+## Stacks
 
 * Last in first out (**LIFO**)
 * Add: **Push**. Remove: **Pop**
 
-#### Implement
+### Implement
 
 ```go
 package main
@@ -155,12 +155,12 @@ func main() {
 }
 ```
 
-### Queues
+## Queues
 
 * First in first out
 * Add : **Enqueue**. Remove: **Dequeue**
 
-#### Implement
+### Implement
 
 ```go
 package main
@@ -195,7 +195,7 @@ func main() {
 }
 ```
 
-### Binary Search Tree
+## Binary Search Tree
 
 Root -> Parent -> Children -> Leaf
 
@@ -207,7 +207,7 @@ Left Children smaller, Right Children bigger
 * O(logn)
 * Worst case still 0(n)
 
-#### Implement
+### Implement
 
 ```go
 package main
@@ -276,7 +276,7 @@ func main() {
 }
 ```
 
-### Tries
+## Tries
 
 Trees that store words.
 
@@ -287,6 +287,8 @@ Time complexity: 0(m), where m is the length of the words/
 Return false immediately if the words not in the tree (the first character of the words not in the first parents)
 
 Tries is trade off between Time and Space.
+
+### Implement
 
 ```go
 package main
@@ -362,9 +364,9 @@ func main() {
 }
 ```
 
-### Hash Tables
+## Hash Tables
 
-#### Introduction
+### Introduction
 
 Search for the name in the array => You have to go through all the array to search for it.
 
@@ -372,7 +374,7 @@ But if you know the index (**hash code**) of the name, for example, 82 for Andy 
 
 When Inserting, but Andy into the **Hash function**, get the hash code, and go to that index to find Andy.
 
-#### Simple Hash Algorithm
+### Simple Hash Algorithm
 
 RANDY => 82 + 65 + 78 + 68 + 89 (ASCII Code) = 382
 
@@ -384,7 +386,7 @@ Eric -> 91.
 
 When we search for STAN, we put into the hash function => get the index and find it in the array
 
-#### Collision Handling
+### Collision Handling
 
 Two name have the same hash code. There are two ways for collision handling
 
@@ -394,7 +396,7 @@ Drawbacks: more and more name in the same address => loose benefit of the hash t
 
 Second is **Separate Chaining**: Storing multiple names in one slot by using Linked List. Each index will hold a pointer point to the head of a linked list. That has a list of name. The linked list will be called bucket.
 
-#### Insert/Delete/Search
+### Insert/Delete/Search
 
 Hash table has the best of array and linked list.
 
@@ -402,7 +404,7 @@ Best case: 0(1) for Insert Delete and Search
 
 Worst Case: 0(n) like a linked list when every element in the same linked list.
 
-#### Implement
+### Implement
 
 ```go
 package main
@@ -545,7 +547,7 @@ func main() {
 }
 ```
 
-### Heap
+## Heap
 
 The parent node is larger than a child.
 
@@ -554,25 +556,25 @@ The parent node is larger than a child.
 
 Very fast when getting the biggest or lowest value (highest node).
 
-#### Insert
+### Insert
 
 When ever insert: add the node to the bottom right of the tree.
 
-#### Heapify
+### Heapify
 
 We need to re-arrange the tree by swapping the parent and child nodes if the child node is larger than the parent node. The process of rearranging the indices as **Heapify**.
 
-#### Extract
+### Extract
 
 Extract means remove the highest key of the tree. Right after taking out the highest nodes, we will take the last node of the tree to the root position. Then we swap with its larger child.
 
-#### Time complexity
+### Time complexity
 
 Heapify up or down is depending on the height of the tree => 0(h) (extract or insert)
 
 If you want to replace to it the number of elements of the array => O(logn) because the height and the number of indices have a logarithmic relation.
 
-#### Implement
+### Implement
 
 ```go
 package main
@@ -749,7 +751,7 @@ func squareAdd(p *int){
 
 ![](../images/images-courses/pointer2.png)
 
-#### return `m` (value) and `&m` (pointer)
+### return `m` (value) and `&m` (pointer)
 
 ```go
 package main
@@ -798,7 +800,7 @@ The compiler will analyze what's going on and figures out that this may cause th
 
 ![](../images/images-courses/pointer5.png)
 
-#### Garbage Collector
+### Garbage Collector
 
 We are doing this in the cost of heap allocation. Which can be a burden for the garbage collector and it can cost us performance.
 
@@ -809,7 +811,3 @@ If we put something in the heap, that will create job for the garbage collector.
 There is a specific algorithms for the garbage collector automatically sets the memory free for ones that we don't use and just keep the ones that we need.
 
 ![](../images/images-courses/pointer6.png)
-
-### Algorithms
-
-[Let's Learn Algorithms by Jon Calhoun](https://www.calhoun.io/lets-learn-algorithms)
