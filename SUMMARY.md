@@ -9,7 +9,7 @@
 
 ## 💸 Data Structures & Algorithms
 
-* [Data Structures \[Junmin Lee\]](data-structures-and-algorithms/data-structures-algorithms.md)
+* [Data Structures \[Junmin Lee\]](data-structures-and-algorithms/data-structures-junmin-lee.md)
 * [Algorithms \[Jon Calhoun\]](data-structures-and-algorithms/algorithms-jon-calhoun.md)
 
 ## 🌠 Database
