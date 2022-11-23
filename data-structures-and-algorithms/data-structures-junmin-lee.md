@@ -1,5 +1,6 @@
-
 This post is based on [Data Structures in Golang by Junmin Lee](https://www.youtube.com/playlist?list=PL0q7mDmXPZm7s7weikYLpNZBKk5dCoWm6)
+
+# Data Structures \[Junmin Lee]
 
 ## Few notes
 
