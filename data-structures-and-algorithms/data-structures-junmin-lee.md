@@ -99,6 +99,13 @@ func main() {
 }
 ```
 
+```go
+{0xc0000522a0 6}
+1 2 3 4 5 6 
+
+2 3 4 5
+```
+
 ## Stacks
 
 ![Stacks](../images/images-courses/stacks.png)
@@ -145,6 +152,10 @@ func main() {
 }
 ```
 
+```go
+{[100 200 300]}
+{[100 200]}
+```
 ## Queues
 
 ![Queues](../images/images-courses/queues.png)
@@ -185,6 +196,11 @@ func main() {
 	myQueue.Dequeue()
 	fmt.Println(myQueue)
 }
+```
+
+```go
+{[100 200 300]}
+{[200 300]}
 ```
 
 ## Binary Search Tree
@@ -270,6 +286,11 @@ func main() {
 }
 ```
 
+```go
+&{100 0xc0000080a8 0xc000008090}
+true
+6
+```
 ## Tries
 
 ![Trie](../images/images-courses/tries.png)
@@ -359,7 +380,12 @@ func main() {
 	fmt.Println(testTrie.Search("aragon"))
 }
 ```
-
+```go
+&{0xc00010e000}
+&{[<nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil>] false}
+&{[0xc00010ec40 0xc00010e8c0 <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> <nil> 0xc00010e540 0xc00010f180 <nil> <nil> <nil> <nil> 0xc00010e1c0 <nil> <nil> <nil> <nil> <nil> <nil>] false}
+true
+```
 ## Hash Tables
 
 ![Hash Table](../images/images-courses/hashtables.png)
@@ -544,7 +570,13 @@ func main() {
 	fmt.Println(testBucket.search("ERIC"))
 }
 ```
-
+```go
+false
+true
+RANDY already exists
+false
+false
+```
 ## Heap
 
 ![Heap](../images/images-courses/heaps.png)
@@ -686,9 +718,142 @@ func main() {
 	}
 }
 ```
+
+```go
+&{[]}
+&{[10]}
+&{[20 10]}
+&{[30 10 20]}
+&{[30 10 20 5]}
+&{[30 10 20 5 7]}
+&{[30 10 20 5 7 9]}
+&{[30 10 20 5 7 9 11]}
+&{[30 13 20 10 7 9 11 5]}
+&{[30 15 20 13 7 9 11 5 10]}
+&{[30 17 20 13 15 9 11 5 10 7]}
+&{[20 17 11 13 15 9 7 5 10]}
+&{[17 15 11 13 10 9 7 5]}
+&{[15 13 11 5 10 9 7]}
+&{[13 10 11 5 7 9]}
+&{[11 10 9 5 7]} 
+```
 ## Graph
 
+![Heap](../images/images-courses/adlist.png)
+![Heap](../images/images-courses/admatrix.png)
+![Heap](../images/images-courses/comparead.png)
 
+### Implement
+```go
+package main
+
+import (
+	"fmt"
+)
+
+// Graph represents an adjacency list graph
+type Graph struct {
+	vertices []*Vertex
+}
+
+// Vertex represent sgraph vertex
+type Vertex struct {
+	key      int
+	adjacent []*Vertex
+}
+
+// Add Vertex to the Graph
+func (g *Graph) AddVertex(k int) {
+	if contains(g.vertices, k) {
+		err := fmt.Errorf("Vertex %v not added because it is an existing key", k)
+		fmt.Println(err.Error())
+	} else {
+		g.vertices = append(g.vertices, &Vertex{key: k})
+	}
+}
+
+// AddEdge adds an edge to the graph
+func (g *Graph) AddEdge(from, to int) {
+	// get vertex
+	fromVertex := g.getVertex(from)
+	toVertex := g.getVertex(to)
+	// check error
+	// check if either from or to vertex not exist
+	if fromVertex == nil || toVertex == nil {
+		err := fmt.Errorf("Invalid edge (%v -->%v)", from, to)
+		fmt.Println(err.Error())
+	} else if contains(fromVertex.adjacent, to) {
+		err := fmt.Errorf("Existing edge (%v -->%v)", from, to)
+		fmt.Println(err.Error())
+	} else {
+		// add edge
+		fromVertex.adjacent = append(fromVertex.adjacent, toVertex)
+	}
+}
+
+// GetVertex returns a pointer to the Vertex with a key integer
+
+func (g *Graph) getVertex(k int) *Vertex {
+	for i, v := range g.vertices {
+		if v.key == k {
+			return g.vertices[i]
+		}
+	}
+	return nil
+}
+
+// contains
+func contains(s []*Vertex, k int) bool {
+	for _, v := range s {
+		if k == v.key {
+			return true
+		}
+	}
+	return false
+}
+
+// Print will print the adjacent list for each vertex of the graph
+func (g *Graph) Print() {
+	for _, v := range g.vertices {
+		fmt.Printf("\nVertex %v : ", v.key)
+		for _, v := range v.adjacent {
+			fmt.Printf("%v ", v.key)
+		}
+	}
+}
+
+func main() {
+	test := &Graph{}
+
+	for i := 0; i < 5; i++ {
+		test.AddVertex(i)
+	}
+
+	test.AddVertex(0)
+	test.AddVertex(0)
+
+	test.AddEdge(1, 2)
+	test.AddEdge(6, 2)
+	test.AddEdge(1, 2)
+	test.AddEdge(2, 4)
+	test.AddEdge(1, 3)
+
+	test.Print()
+}
+```
+
+```go
+Vertex 0 not added because it is an existing key
+Vertex 0 not added because it is an existing key
+Invalid edge (6 -->2)
+Existing edge (1 -->2)
+
+Vertex 0 :
+Vertex 1 : 2 3
+Vertex 2 : 4
+Vertex 3 :
+Vertex 4 :
+```
 ## Pointers
 
 \*:
