@@ -1,5 +1,8 @@
 # Go Class \[Matt KØDVB]
 
+This post includes information that I found interesting or important while watching the YouTube Go Tutorial Series:
+**Go Class** by **Matt KØDV**
+
 ## 0. Intro and Why Use Go?
 
 * Simple and readable language that makes SE easier: When read our past code or hire new people.
@@ -8,4 +11,3 @@
 
 For me, I think the newer, the better.
 
-## 1. Hello world!

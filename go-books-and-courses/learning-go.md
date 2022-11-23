@@ -4,7 +4,7 @@ description: >-
   Bodner
 ---
 
-Note that only information that I found interesting or important is included in this post.
+This post includes information that I found interesting or important while reading the **Learning Go** book by **John Bodner**.
 
 # Learning Go \[Book]
 

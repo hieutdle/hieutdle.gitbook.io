@@ -1,26 +1,22 @@
-# Data Structures, Algorithms and Pointers in Go
+# Data Structures \[Junmin Lee]
 
-## Golang Tutorials
+This post is based on [Data Structures in Golang by Junmin Lee](https://www.youtube.com/playlist?list=PL0q7mDmXPZm7s7weikYLpNZBKk5dCoWm6)
 
-This chapter is based on [Golang Tutorial 2 - Learn how go works with the hello world code by Junmin Lee](https://www.youtube.com/watch?v=7PMEbo5Ryeg\&t=129s)
+## Few notes
 
-C++, Go, Java, Python: High Level Languages, which means human readable
+Few notes from [Golang Tutorial 2 - Learn how go works with the hello world code by Junmin Lee](https://www.youtube.com/watch?v=7PMEbo5Ryeg\&t=129s)
 
-Human -> Machine: Compile (Convert human to machine readable code)
+C++, Go, Java, Python: High Level Languages, which means human-readable.
 
-For example, when you finishing a program, **compiler** will transform it to a executable file (file.exe)
+Human -> Machine: Compile (Convert human to machine-readable code).
+
+For example, when finishing a program, **compiler** will transform it to an executable file (file.exe).
 
 A package is a collection of source files in the same directory that are compiled together.
 
-A module is a collection of related go packages that are released together
+A module is a collection of related go packages that are released together.
 
-## Data Structures
-
-This chapter is based on [Data Structures in Golang by Junmin Lee](https://www.youtube.com/playlist?list=PL0q7mDmXPZm7s7weikYLpNZBKk5dCoWm6)
-
-[**You can find all the code of this chapter here**](https://github.com/ledinhtrunghieu/learning-go)
-
-### Linked List
+## Linked List
 
 Linked List put the values in nodes. Nodes are linked to each others by containing address of the next nodes.
 
