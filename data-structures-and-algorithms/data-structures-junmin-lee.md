@@ -2,21 +2,9 @@ This post is based on [Data Structures in Golang by Junmin Lee](https://www.yout
 
 # Data Structures \[Junmin Lee]
 
-## Few notes
-
-Few notes from [Golang Tutorial 2 - Learn how go works with the hello world code by Junmin Lee](https://www.youtube.com/watch?v=7PMEbo5Ryeg\&t=129s)
-
-C++, Go, Java, Python: High Level Languages, which means human-readable.
-
-Human -> Machine: Compile (Convert human to machine-readable code).
-
-For example, when finishing a program, **compiler** will transform it to an executable file (file.exe).
-
-A package is a collection of source files in the same directory that are compiled together.
-
-A module is a collection of related go packages that are released together.
-
 ## Linked List
+
+![Linked List](../images/images-courses/linkedlist.png)
 
 Linked List put the values in nodes. Nodes are linked to each other by containing address of the next nodes.
 
@@ -113,6 +101,8 @@ func main() {
 
 ## Stacks
 
+![Stacks](../images/images-courses/stacks.png)
+
 * Last in first out (**LIFO**)
 * Add: **Push**. Remove: **Pop**
 
@@ -157,6 +147,8 @@ func main() {
 
 ## Queues
 
+![Queues](../images/images-courses/queues.png)
+
 * First in first out
 * Add : **Enqueue**. Remove: **Dequeue**
 
@@ -196,6 +188,8 @@ func main() {
 ```
 
 ## Binary Search Tree
+
+![Tree](../images/images-courses/binarytree.png)
 
 Root -> Parent -> Children -> Leaf
 
@@ -277,6 +271,8 @@ func main() {
 ```
 
 ## Tries
+
+![Trie](../images/images-courses/tries.png)
 
 Trees that store words.
 
@@ -365,6 +361,8 @@ func main() {
 ```
 
 ## Hash Tables
+
+![Hash Table](../images/images-courses/hashtables.png)
 
 ### Introduction
 
@@ -549,6 +547,8 @@ func main() {
 
 ## Heap
 
+![Heap](../images/images-courses/heaps.png)
+
 The parent node is larger than a child.
 
 * parent index \* 2 + 1 = left child index.
@@ -686,6 +686,8 @@ func main() {
 	}
 }
 ```
+## Graph
+
 
 ## Pointers
 
@@ -811,4 +813,21 @@ If we put something in the heap, that will create job for the garbage collector.
 There is a specific algorithms for the garbage collector automatically sets the memory free for ones that we don't use and just keep the ones that we need.
 
 ![](../images/images-courses/pointer6.png)
- 
+
+## Few notes
+
+Few notes from [Golang Tutorial 2 - Learn how go works with the hello world code by Junmin Lee](https://www.youtube.com/watch?v=7PMEbo5Ryeg\&t=129s)
+
+C++, Go, Java, Python: High Level Languages, which means human-readable.
+
+Human -> Machine: Compile (Convert human to machine-readable code).
+
+For example, when finishing a program, **compiler** will transform it to an executable file (file.exe).
+
+A package is a collection of source files in the same directory that are compiled together.
+
+A module is a collection of related go packages that are released together.
+
+## References
+
+* [Data Structures in Golang by Junmin Lee](https://www.youtube.com/playlist?list=PL0q7mDmXPZm7s7weikYLpNZBKk5dCoWm6)
