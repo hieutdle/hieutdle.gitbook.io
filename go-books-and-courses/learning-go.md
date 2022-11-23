@@ -304,7 +304,7 @@ func main() {
 
 Write a function to modify a map parameter and a function to modify a slice parameter. Any changes made to a map parameter are reflected in the variable passed into the function (includes delete). For a slice, you can modify any element in the slice, but you can’t lengthen the slice. It’s because maps and slices are both implemented with pointers.
 
-## Pointer
+## Chapter 6. Pointer
 
 ### A Quick Pointer Primer
 
@@ -355,7 +355,7 @@ Changing the values in the slice changes the memory that the pointer points to, 
 
 The reason you can pass a slice of any size to a function is that the data that’s passed to the function is the same for any size slice: two int values and a pointer. The reason that you can’t write a function that takes an array of any size is because the entire array is passed to the function, not just a pointer to the data.
 
-## Types, Methods, and Interfaces
+## Chapter 7. Types, Methods, and Interfaces
 
 Go allows you to declare a type at any block level, from the package block down.
 
