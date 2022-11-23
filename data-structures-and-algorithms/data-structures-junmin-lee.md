@@ -1,4 +1,3 @@
-# Data Structures \[Junmin Lee]
 
 This post is based on [Data Structures in Golang by Junmin Lee](https://www.youtube.com/playlist?list=PL0q7mDmXPZm7s7weikYLpNZBKk5dCoWm6)
 
@@ -811,3 +810,4 @@ If we put something in the heap, that will create job for the garbage collector.
 There is a specific algorithms for the garbage collector automatically sets the memory free for ones that we don't use and just keep the ones that we need.
 
 ![](../images/images-courses/pointer6.png)
+ 
