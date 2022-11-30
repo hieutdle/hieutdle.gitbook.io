@@ -739,9 +739,42 @@ func main() {
 ```
 ## Graph
 
-![Heap](../images/images-courses/adlist.png)
-![Heap](../images/images-courses/admatrix.png)
-![Heap](../images/images-courses/comparead.png)
+![Adjacency List](../images/images-courses/adlist.png)
+![Adjacency Matrix](../images/images-courses/admatrix.png)
+
+### Adjacency Matrix vs Adjacency List:
+
+**V is a number of vertices**
+**Space**
+
+You always need V square space where V is a number of vertices.
+
+**Edge Lookup**
+
+Constant time for Matrix because we just need to do the array look up.
+
+For List you need to travel a list of adjacent vertices which in the worst case it would need v step.
+
+**Add vertex**
+
+Easy in List because we just need an element to list.
+
+But in Matrix we need to copy the whole array to add new dimensions to the matrix.
+
+**Remmove vertex**
+
+Same with add vertex. We need to copy the array to have a new array.
+
+**Add Edge**
+
+Both constant time
+
+**Delete Edge**
+Same for add edge for matrix. But for ad-list, you need to travel to find the edge => 0(V)
+
+
+![Compare](../images/images-courses/comparead.png)
+
 
 ### Implement
 ```go
