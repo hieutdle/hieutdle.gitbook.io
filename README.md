@@ -17,8 +17,8 @@ Note that all posts in this blog are **Go** related or have **Go** examples.
 
 ### 💸 Data Structures & Algorithms
 
-* [Data Structures \[Junmin Lee\]](data-structures-and-algorithms/data-structures-junmin-lee.md)
-* [Algorithms \[Jon Calhoun\]](data-structures-and-algorithms/algorithms-jon-calhoun.md)
+* [Data Structures \[Junmin Lee\]](go-books-and-courses/data-structures-junmin-lee.md)
+* [Algorithms \[Jon Calhoun\]](gods.md)
 
 ### 🌠 Database
 
@@ -38,7 +38,7 @@ Note that all posts in this blog are **Go** related or have **Go** examples.
 
 ### ☁ Cloud
 
-* [Google Cloud - Docker](cloud/google-cloud-docker.md)
+* [Google Cloud - Docker](broken-reference)
 
 ## Background
 

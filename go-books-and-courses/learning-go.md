@@ -1,16 +1,16 @@
 ---
-description: >-
-  📔  Learning Go: An Idiomatic Approach to Real-World Go Programming by John
-  Bodner
+description: 'Learning Go: An Idiomatic Approach to Real-World Go Programming by John Bodner'
 ---
-
-This post includes information that I found interesting or important while reading the **Learning Go** book by **John Bodner**.
 
 # Learning Go \[Book]
 
-## Chapter 2. Primitive Types and Declarations
+This post includes information that I found interesting or important while reading the **Learning Go** book by **John Bodner**.
 
-### Built-in Types
+## Learning Go \[Book]
+
+### Chapter 2. Primitive Types and Declarations
+
+#### Built-in Types
 
 **Integer literals** are normally base ten, but different prefixes are used to indicate other bases: `0b` for binary (base two), `0o` or leading 0 with no letter follow for octal (base eight), or `0x` for hexadecimal (base sixteen).
 
@@ -26,7 +26,7 @@ An **int** (or **unit**). On a 32-bit or 64-bit CPU, `int` is a 32-bit or 64-bit
 
 The **rune** type is an alias for the **int32** type.
 
-### var Versus :=
+#### var Versus :=
 
 ```go
 var x int = 10
@@ -40,7 +40,7 @@ Situations within functions where you should avoid `:=`:
 * When initializing a variable to its zero value, use `var x int`. This makes it clear that the zero value is intended.
 * specify the type of the value: `x := byte(20)`, it is idiomatic to write `var x byte = 20`
 
-### Typed and Untyped Constants
+#### Typed and Untyped Constants
 
 Constants can be typed or untyped. All of the following assignments are legal:
 
@@ -50,13 +50,13 @@ var y float = x
 var z byte = x
 ```
 
-### Naming Variables and Constants
+#### Naming Variables and Constants
 
 The names `k` and `v` (short for key and value) are used as the variable names in a `for-range` loop, standard for loop: `i` and `j` are common names for the index variable. People will use the first letter of a type (for example, `i` for integers, `f` for floats, `b` for booleans).
 
-## Chapter 3. Composite Types
+### Chapter 3. Composite Types
 
-### Arrays
+#### Arrays
 
 ```go
 var x = [12]int{1, 5: 4, 6, 10: 100, 15}
@@ -64,7 +64,7 @@ var x = [12]int{1, 5: 4, 6, 10: 100, 15}
 
 This creates an array of 12 ints with the following values: \[1, 0, 0, 0, 0, 4, 6, 0, 0, 0, 100, 15]. `5: 4` means 0 0 0 0 to index 5, then 4.
 
-### Slices
+#### Slices
 
 One slice is appended onto another by using the `…` operator to expand the source slice into individual values.
 
@@ -75,7 +75,7 @@ x = append(x, y...)
 
 When a slice grows via append, the Go runtime usually increases a slice by more than one each time it runs out of capacity. The rules as of Go 1.14 are to double the size of the slice when the capacity is less than 1,024 and then grow by at least 25% afterward.
 
-#### Declaring slices
+**Declaring slices**
 
 ```go
 var data []int // a slice that stays nil
@@ -93,7 +93,7 @@ y := x[:2:2]
 z := x[2:4:4]
 ```
 
-#### copy
+**copy**
 
 Create a slice that’s independent of the original, use the built-in `copy` function.
 
@@ -104,7 +104,7 @@ num := copy(y, x)
 copy(y, x[2:]) // first is destination and second is source
 ```
 
-#### Converting strings to slices
+**Converting strings to slices**
 
 ```go
 var s string = "Hello"
@@ -115,7 +115,7 @@ var rs []rune = []rune(s)
 [72 101 108 108 111 44 32 127774]
 ```
 
-### Map
+#### Map
 
 `map[keyType]valueType`
 
@@ -157,13 +157,13 @@ if intSet[100] {
 }
 ```
 
-#### Comparing and Converting Structs
+**Comparing and Converting Structs**
 
 Go does allow you to perform a type conversion from one struct type to another if the fields of both structs have the same names, order, and types.
 
-## Chapter 4. Blocks, Shadows, and Control Structures
+### Chapter 4. Blocks, Shadows, and Control Structures
 
-### for, Four Ways
+#### for, Four Ways
 
 ```go
 // A complete, C-style for
@@ -194,12 +194,11 @@ for k := range uniqueNames {
 
 The most common reason for iterating over the key is when a map is being used as a set.
 
+### Chapter 5. Functions
 
-## Chapter 5. Functions
+#### Declaring and Calling Functions
 
-### Declaring and Calling Functions
-
-#### Variadic Input Parameters
+**Variadic Input Parameters**
 
 **Variadic parameters** allows any number of input parameters
 
@@ -219,7 +218,7 @@ fmt.Println(addTo(3, a...))
 fmt.Println(addTo(3, []int{1, 2, 3, 4, 5}...))
 ```
 
-#### Named Return Values
+**Named Return Values**
 
 While named return values can sometimes help clarify your code, they do have some potential corner cases - problem of shadowing
 
@@ -237,11 +236,11 @@ func divAndRemainder(numerator, denominator int) (result int, remainder int,
 
 Pass 5 and 2 to this function. Return 2 1.
 
-#### Blank Returns—Never Use These!
+**Blank Returns—Never Use These!**
 
 When there’s invalid input, we return immediately. At first, you might find blank returns handy since they allow you to avoid some typing. However, most experienced Go developers consider blank returns a bad idea because they make it harder to understand data flow.
 
-### Functions Are Values
+#### Functions Are Values
 
 ```go
 func add(i int, j int) int { return i + j }
@@ -252,7 +251,7 @@ var opMap = map[string]func(int, int) int{
 }
 ```
 
-### Closures
+#### Closures
 
 Functions declared inside of functions are closures.
 
@@ -276,7 +275,7 @@ func main() {
 }
 ```
 
-### Go Is Call By Value
+#### Go Is Call By Value
 
 It means that when you supply a variable for a parameter to a function, Go always makes a copy of the value of the variable
 
@@ -304,9 +303,9 @@ func main() {
 
 Write a function to modify a map parameter and a function to modify a slice parameter. Any changes made to a map parameter are reflected in the variable passed into the function (includes delete). For a slice, you can modify any element in the slice, but you can’t lengthen the slice. It’s because maps and slices are both implemented with pointers.
 
-## Chapter 6. Pointer
+### Chapter 6. Pointer
 
-### A Quick Pointer Primer
+#### A Quick Pointer Primer
 
 A **pointer type**
 
@@ -341,13 +340,13 @@ func main() {
 
 we start with `x` in `main` set to `10`. When we call `failedUpdate`, we copy the address of `x` into the parameter `px`. Next, we declare `x2` in `failedUpdate`, set to `20`. We then point `px` in `failedUpdate` to the address of `x2`. When we return to main, the value of `x` is unchanged. When we call update, we copy the address of `x` into `px` again. However, this time we change the value of what `px` in update points to, the variable `x` in main. When we return to main, `x` has been changed.
 
-####Pointer Passing Performance
+\####Pointer Passing Performance
 
 The time to pass a pointer into a function is constant for all data sizes, roughly one nanosecond. This makes sense, as the size of a pointer is the same for all data types. It takes about a millisecond once the value gets to be around 10 megabytes of data.
 
 The behavior for returning a pointer versus returning a value is more interesting. For data structures that are smaller than a megabyte, it is actually slower to return a pointer type than a value type. For example, a 100-byte data structure takes around 10 nanoseconds to be returned, but a pointer to that data structure takes about 30 nano‐ seconds. Once your data structures are larger than a megabyte, the performance advantage flips. It takes nearly 2 milliseconds to return 10 megabytes of data, but a little more than half a millisecond to returnq a pointer to it.
 
-### The Difference Between Maps and Slices
+#### The Difference Between Maps and Slices
 
 You should avoid using maps for input parameters or return values, especially on public APIs.
 
@@ -355,7 +354,7 @@ Changing the values in the slice changes the memory that the pointer points to, 
 
 The reason you can pass a slice of any size to a function is that the data that’s passed to the function is the same for any size slice: two int values and a pointer. The reason that you can’t write a function that takes an array of any size is because the entire array is passed to the function, not just a pointer to the data.
 
-## Chapter 7. Types, Methods, and Interfaces
+### Chapter 7. Types, Methods, and Interfaces
 
 Go allows you to declare a type at any block level, from the package block down.
 
@@ -365,7 +364,7 @@ type Converter func(string)Score
 type TeamScores map[string]Score
 ```
 
-### Methods
+#### Methods
 
 ```go
 type Person struct {
@@ -380,7 +379,7 @@ func (p Person) String() string {
 
 Method declarations look just like function declarations, with one addition: the receiver specification. The receiver appears between the keyword func and the name of the method. The receiver name `p` appears before the type `Person`.
 
-#### Pointer Receivers and Value Receivers
+**Pointer Receivers and Value Receivers**
 
 * If your method modifies the receiver or needs to handle nil instances, you must use a pointer receiver.
 * If your method doesn’t modify the receiver, you can use a value receiver
@@ -419,7 +418,7 @@ func main() {
 }
 ```
 
-#### Methods Are Functions Too
+**Methods Are Functions Too**
 
 ```go
 type Adder struct {
@@ -453,7 +452,7 @@ fmt.Println(f2(myAdder, 15)) // prints 25
 
 In the case of a method expression, the first parameter is the receiver for the method; our function signature is func(Adder, int) int.
 
-#### iota
+**iota**
 
 his means that it assigns 0 to the first constant , 1 to the second constant , and so on. When a new const block is created, iota is set back to 0.
 
@@ -467,7 +466,7 @@ const (
 )
 ```
 
-### Use Embedding for Composition
+#### Use Embedding for Composition
 
 ```go
 type Employee struct {
@@ -496,7 +495,7 @@ m := Manager{
   fmt.Println(m.Description()) // prints Bob Bobson (12345)
 ```
 
-### Embedding Is Not Inheritance
+#### Embedding Is Not Inheritance
 
 ```go
 var eFail Employee = m // compilation error!
@@ -535,7 +534,7 @@ Running this code produces the output:
 Inner: 20
 ```
 
-### Interface
+#### Interface
 
 Interfaces specify what callers need. The client code defines the interface to specify what functionality it requires.
 
@@ -618,11 +617,11 @@ func main() {
 }
 ```
 
-### Accept Interfaces, Return Structs
+#### Accept Interfaces, Return Structs
 
 You’ll often hear experienced Go developers say that your code should “Accept inter‐ faces, return structs.” What this means is that the business logic invoked by your functions should be invoked via interfaces, but the output of your functions should be a concrete type.
 
-### The Empty Interface Says Nothing
+#### The Empty Interface Says Nothing
 
 Sometimes in a statically typed language, you need a way to say that a variable could store a value of any type. Go uses interface{} to represent this:
 
@@ -670,7 +669,7 @@ func (ll *LinkedList) Insert(pos int, val interface{}) *LinkedList {
 }
 ```
 
-### Type Switches
+#### Type Switches
 
 ```go
 func doThings(i interface{}) {
@@ -693,7 +692,7 @@ func doThings(i interface{}) {
 }
 ```
 
-## Chapter 8. Errors
+### Chapter 8. Errors
 
 When a function executes as expected, `nil` is returned for the error parameter. If something goes wrong, an error value is returned instead.
 
@@ -725,7 +724,7 @@ type error interface {
 }
 ```
 
-### Use Strings for Simple Errors
+#### Use Strings for Simple Errors
 
 Go’s standard library provides two ways to create an error from a string. `errors.New()` and `fmt.Errorf()`
 
@@ -745,7 +744,7 @@ return i * 2, nil
 }
 ```
 
-## Chapter 9. Modules, Packages, and Imports
+### Chapter 9. Modules, Packages, and Imports
 
 A module is the root of a Go library or application, stored in a repository. Modules consist of one or more pack‐ ages, which give the module organization and structure.
 
@@ -753,9 +752,8 @@ Package names should be descriptive. Rather than have a package called `util`, c
 
 It’s better to create one function called `Names` in a package called `extract` and a second function called `Names` in a package called `format`. It’s OK for these two functions to have the same name, because they will always be disambiguated by their package names. The first will be referred to as `extract.Names` when imported, and the second will be referred to as `format.Names`.
 
+### Will be continued in the future ...
 
-## Will be continued in the future ...
-
-## References
+### References
 
 * [Learning Go: An Idiomatic Approach to Real-World Go Programming](https://www.amazon.de/-/en/Jon-Bodner/dp/1492077216)
