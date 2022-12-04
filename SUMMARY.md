@@ -5,9 +5,9 @@
 
 ## 📖 Go Books & Courses
 
-* [Learning Go \[Book\]](go-books-and-courses/learning-go.md)
+* [The Go PL \[Alan Donovan\]](go-books-and-courses/the-go-pl-alan-donovan.md)
+* [Learning Go \[John Bodner\]](go-books-and-courses/learning-go.md)
 * [Data Structures \[Junmin Lee\]](go-books-and-courses/data-structures-junmin-lee.md)
-* [Go Class \[Matt KØDVB\]](go-books-and-courses/go-class.md)
 
 ## 🌠 Database
 

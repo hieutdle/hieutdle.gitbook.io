@@ -13,7 +13,7 @@ Note that all posts in this blog are **Go** related or have **Go** examples.
 ### ☯ Go Books & Courses
 
 * [Learning Go \[Book\]](go-books-and-courses/learning-go.md)
-* [Go Class \[Matt KØDVB\]](go-books-and-courses/go-class.md)
+* [Go Class \[Matt KØDVB\]](broken-reference)
 
 ### 💸 Data Structures & Algorithms
 
