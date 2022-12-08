@@ -1,108 +1,58 @@
 package main
 
-import "fmt"
+import (
+	"fmt"
+	"strconv"
+)
 
-// MaxHeap struct has a slice that holds the array
-type MaxHeap struct {
-	array []int
+type Stack struct {
+	items []int
 }
 
-// Insert adds an element to the heap
-func (h *MaxHeap) Insert(key int) {
-	h.array = append(h.array, key)
-	h.maxHeapifyUp(len(h.array) - 1)
+// Size() returns the number of items on the stack.
+func (s *Stack) Size() int {
+	return len(s.items)
 }
 
-// Extract returns the largest key, and removes it from the heap.
-func (h *MaxHeap) Extract() int {
-	extracted := h.array[0]
-	l := len(h.array) - 1
+// Push(item) adds a new item to the top of the stack.
+func (s *Stack) Push(i int) {
+	s.items = append(s.items, i)
+}
 
-	if len(h.array) == 0 {
-		fmt.Print("cannot extract because array length is 0")
-		return -1
+// Pop() will remove a value at the end and return it.
+func (s *Stack) Pop() int {
+	l := s.Size()
+	toRemove := s.items[l-1]
+	s.items = s.items[:l-1]
+	return toRemove
+}
+
+// Peek() returns the top item from the stack.
+func (s *Stack) Peek() int {
+	l := s.Size()
+	return s.items[l-1]
+}
+
+// IsEmpty() tests to see whether the stack is empty and returns a boolean value.
+func (s *Stack) IsEmpty() bool {
+	return s.Size() == 0
+}
+
+func baseConverter(decNumber int, base int) string {
+	remStack := Stack{}
+	for decNumber > 0 {
+		rem := decNumber % base
+		remStack.Push(rem)
+		decNumber = decNumber / base
 	}
-
-	h.array[0] = h.array[l]
-	h.array = h.array[:l]
-
-	h.maxHeapifyDown(0)
-	return extracted
-}
-
-// maxHeapifyUp will heapify from bottom top
-func (h *MaxHeap) maxHeapifyUp(index int) {
-	for h.array[parent(index)] < h.array[index] {
-		h.swap(parent(index), index)
-		index = parent(index)
+	newString := ""
+	for !(remStack.IsEmpty()) {
+		newString = newString + strconv.Itoa(remStack.Pop())
 	}
-}
-
-// maxHeapifyDown will be heapify top to bottom
-func (h *MaxHeap) maxHeapifyDown(index int) {
-
-	// loop while index at least one child
-	lastIndex := len(h.array) - 1
-	l, r := left(index), right(index)
-	childToCompare := 0
-	for l <= lastIndex {
-		if l == lastIndex {
-			// when left child is the only child
-			childToCompare = l
-		} else if h.array[l] > h.array[r] {
-			//when left child is larger
-			childToCompare = l
-		} else {
-			// when right child is larger
-			childToCompare = r
-		}
-
-		// compare array value of current index
-		// to larger child and swap if smaller
-
-		if h.array[index] < h.array[childToCompare] {
-			h.swap(index, childToCompare)
-			index = childToCompare
-			l, r = left(index), right(index)
-		} else {
-			// it means it find the right place
-			return
-		}
-
-	}
-}
-
-// get the parent index
-func parent(i int) int {
-	return (i - 1) / 2
-}
-
-// get the left child index
-func left(i int) int {
-	return 2*i + 2
-}
-
-// get the right child index
-func right(i int) int {
-	return 2*i + 1
-}
-
-// swap keys in the array
-func (h *MaxHeap) swap(i1, i2 int) {
-	h.array[i1], h.array[i2] = h.array[i2], h.array[i1]
+	return newString
 }
 
 func main() {
-	m := &MaxHeap{}
-	fmt.Println(m)
-	buildHeap := []int{10, 20, 30, 5, 7, 9, 11, 13, 15, 17}
-	for _, v := range buildHeap {
-		m.Insert(v)
-		fmt.Println(m)
-	}
-
-	for i := 0; i < 5; i++ {
-		m.Extract()
-		fmt.Println(m)
-	}
+	mynum := 25
+	fmt.Println(baseConverter(mynum, 2))
 }
