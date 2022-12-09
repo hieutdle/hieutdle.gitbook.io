@@ -120,18 +120,18 @@ package main
 
 import "fmt"
 
-type Stack struct {
+type Queue struct {
 	items []int
 }
 
 // Push will add value at the end
-func (s *Stack) Push(i int) {
+func (s *Queue) Push(i int) {
 	s.items = append(s.items, i)
 }
 
 // Pop will remove a value at the end
 // End return the removed value
-func (s *Stack) Pop() int {
+func (s *Queue) Pop() int {
 
 	// a[low : high]
 	// This selects a half-open range which includes the first element, but excludes the last one.
@@ -142,7 +142,7 @@ func (s *Stack) Pop() int {
 }
 
 func main() {
-	myStack := Stack{}
+	myStack := Queue{}
 	myStack.Push(100)
 	myStack.Push(200)
 	myStack.Push(300)
@@ -161,7 +161,7 @@ func main() {
 ![Queues](../images/images-courses/queues.png)
 
 * First in first out
-* Add : **Enqueue**. Remove: **Dequeue**
+* Add : **Enqueue**. Remove: **Deque**
 
 ### Implement
 
@@ -181,7 +181,7 @@ func (q *Queue) Enqueue(i int) {
 
 // Pop will remove a value at the end
 // End return the removed value
-func (q *Queue) Dequeue() int {
+func (q *Queue) Deque() int {
 	toRemove := q.items[0]
 	q.items = q.items[1:]
 	return toRemove
@@ -193,7 +193,7 @@ func main() {
 	myQueue.Enqueue(200)
 	myQueue.Enqueue(300)
 	fmt.Println(myQueue)
-	myQueue.Dequeue()
+	myQueue.Deque()
 	fmt.Println(myQueue)
 }
 ```
