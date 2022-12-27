@@ -1,7 +1,6 @@
 # Table of contents
 
-* [🏠 Hieu's Go blog](README.md)
-* [☯ gods](gods.md)
+* [☯ gods](README.md)
 
 ## 📖 Go Books & Courses
 
